@@ -7,12 +7,15 @@ Plug 'https://github.com/tpope/vim-unimpaired'
 " Git wrapper for vim
 Plug 'https://github.com/tpope/vim-fugitive.git'
 
+" vim-gitgutter - show git diff in the gutter
+Plug 'airblade/vim-gitgutter'
+
 " nerdtree - file system explore
 Plug 'scrooloose/nerdtree'
 
 " vim-airline - vim status bar improved
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " fzf - fuzzy file search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -42,10 +45,13 @@ call plug#end()
 let g:indentLine_enabled = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
-" NERDTree shortcut
+" NERDTree plugin settings
 map <C-n> :NERDTreeToggle<CR>
 
-" Fzf
+" vim-gitgutter plugin settings
+set updatetime=100
+
+" Fzf plugin settings
 nnoremap <C-p> :<C-u>FZF<CR>
 
 " Map leader to , key
