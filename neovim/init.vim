@@ -46,13 +46,15 @@ let g:indentLine_enabled = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 " NERDTree plugin settings
-map <C-n> :NERDTreeToggle<CR>
+noremap <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeShowHidden=1
 
 " vim-gitgutter plugin settings
 set updatetime=100
 
 " Fzf plugin settings
-nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap ` :Files<CR>
+nnoremap ; :Buffers<CR>
 
 " Map leader to , key
 let mapleader = ','
