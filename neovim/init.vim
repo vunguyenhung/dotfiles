@@ -4,6 +4,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 " unimpaired - set of vim util aliases
 Plug 'https://github.com/tpope/vim-unimpaired'
 
+" Git wrapper for vim
+Plug 'https://github.com/tpope/vim-fugitive.git'
+
 " nerdtree - file system explore
 Plug 'scrooloose/nerdtree'
 
