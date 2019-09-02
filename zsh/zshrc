@@ -1,0 +1,36 @@
+export ZSH="~/.oh-my-zsh"
+
+ZSH_THEME="robbyrussell"
+COMPLETION_WAITING_DOTS="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# NVM
+export NVM_LAZY_LOAD=true
+
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-nvm
+)
+
+source $ZSH/oh-my-zsh.sh
+
+######################### 
+#### USER CONFIGURATION
+######################### 
+
+export LANG="en_US.UTF-8"
+
+# Editor
+export EDITOR='vim'
+alias vim="nvim"
+alias vi="nvim"
+
+# Bind Alt + Arrow to jump word in terminal
+bindkey "\e\eOD" backward-word
+bindkey "\e\eOC" forward-word
+
+# ZSH aliases
+alias zshconfig="vi ~/.zshrc"
+alias zshreload="source ~/.zshrc"
+

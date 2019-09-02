@@ -48,7 +48,6 @@ nnoremap <C-t>c :tabclose<CR>
 if has('nvim')
   tnoremap <Esc> <C-\><C-n> tnoremap <C-v><Esc> <Esc>
   highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
-  let $GIT_EDITOR = 'nvr -cc split --remote-wait'
 endif
 
 " Open config files
@@ -58,9 +57,6 @@ command! Zshconfig :e ~/.zshrc
 " Terminal
 command! Term split | terminal
 command! VTerm vsplit | terminal
-if has('nvim') && executable('nvr')
-  let $VISUAL="nvr -cc vsplit --remote-wait +'set bufhidden=wipe'"
-endif
 
 " Editor setup
 set backspace=2   " Backspace deletes like most programs in insert mode
@@ -74,10 +70,6 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
-
-" Indent
-" set autoindent
-" set smartindent
 
 " Use space, soft tab
 set tabstop=2
