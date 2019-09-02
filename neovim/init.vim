@@ -10,6 +10,10 @@ Plug 'https://github.com/tpope/vim-fugitive.git'
 " nerdtree - file system explore
 Plug 'scrooloose/nerdtree'
 
+" vim-airline - vim status bar improved
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+
 " fzf - fuzzy file search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -34,9 +38,12 @@ Plug 'https://github.com/tpope/vim-repeat'
 
 call plug#end()
 
-" indentLine settings
+" indentLine plugin settings
 let g:indentLine_enabled = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+" NERDTree shortcut
+map <C-n> :NERDTreeToggle<CR>
 
 " Fzf
 nnoremap <C-p> :<C-u>FZF<CR>
