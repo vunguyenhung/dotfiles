@@ -51,6 +51,8 @@ let g:NERDTreeShowHidden=1
 
 " vim-gitgutter plugin settings
 set updatetime=100
+nmap <Leader>ha <Plug>GitGutterStageHunk
+nmap <Leader>hr <Plug>GitGutterUndoHunk
 
 " Fzf plugin settings
 nnoremap ` :Files<CR>
