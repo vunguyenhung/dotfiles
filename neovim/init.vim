@@ -1,3 +1,6 @@
+" Map leader to , key
+let mapleader = ','
+
 " vim-plug package manager
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -57,9 +60,6 @@ nmap <Leader>hr <Plug>GitGutterUndoHunk
 " Fzf plugin settings
 nnoremap ` :Files<CR>
 nnoremap ; :Buffers<CR>
-
-" Map leader to , key
-let mapleader = ','
 
 " Tab shortcuts
 nnoremap <C-t>n :tabnew<Cr>
