@@ -41,6 +41,9 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " Fzf
 nnoremap <C-p> :<C-u>FZF<CR>
 
+" Map leader to , key
+let mapleader = ','
+
 " Tab shortcuts
 nnoremap <C-t>n :tabnew<Cr>
 nnoremap <C-t>l :tabnext<CR>
