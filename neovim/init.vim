@@ -65,7 +65,7 @@ nnoremap <C-t>l :tabnext<CR>
 nnoremap <C-t>h :tabprev<CR>
 nnoremap <C-t>c :tabclose<CR>
 
-" Terminal Emulator improvment
+" Terminal Emulator improvement
 if has('nvim')
   tnoremap <Esc> <C-\><C-n> tnoremap <C-v><Esc> <Esc>
   highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
@@ -74,10 +74,6 @@ endif
 " Open config files
 command! Viconfig :e $VIMCONFIG/init.vim
 command! Zshconfig :e ~/.zshrc
-
-" Terminal
-command! Term split | terminal
-command! VTerm vsplit | terminal
 
 " Editor setup
 set backspace=2   " Backspace deletes like most programs in insert mode
