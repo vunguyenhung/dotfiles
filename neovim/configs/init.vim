@@ -159,12 +159,14 @@ command! Zshconfig :e ~/.zshrc
 command! Vireload :source $VIMCONFIG
 
 " Editor setup
-set backspace=2   " Backspace deletes like most programs in insert mode
+" Backspace deletes like most programs in insert mode
+set backspace=2
 set nobackup
 set nowritebackup
 set noswapfile
 set history=50
-set showcmd       " display incomplete commands
+" display incomplete commands
+set showcmd
 " refesh on external changes
 set autoread | au CursorHold * checktime
 set incsearch     " do incremental searching
