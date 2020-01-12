@@ -100,9 +100,6 @@ Plug 'mhinz/vim-startify'
 
 call plug#end()
 
-" colorizer settings
-" source $VIMCONFIG_DIR/colorizer.vim
-
 " vim-startify settings
 source $VIMCONFIG_DIR/vim_startify.vim
 
