@@ -1,5 +1,9 @@
-# 1. Install
+echo "Installing tmux..."
 brew install tmux
+echo "Installed tmux!"
 
-# 2. Copy config
+
+echo "Copying configs..."
 cp ./tmux.conf ~/.tmux.conf
+cp ./tmux.paper-color-theme ~/.tmux.paper-color-theme
+echo "Copied configs!"

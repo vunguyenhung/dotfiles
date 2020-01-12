@@ -1,11 +1,6 @@
-# TMUX setup
+# Tmux
 
-## Step 1: Install tmux
+## 1. Install
 ```bash
 bash ./install.sh
-```
-
-## Step 2: Copy tmux config
-```bash
-cp ./tmux.conf ~/.tmux.conf
 ```

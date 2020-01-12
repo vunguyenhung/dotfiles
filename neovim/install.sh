@@ -1,3 +1,14 @@
+echo "Installing neovim..."
 brew install neovim
+echo "Installed neovim!"
 
-mkdir ~/.config/nvim && cp ./init.vim ~/.config/nvim/
+echo "Installing vim-plug..."
+bash ./vim-plug.sh
+echo "Installed vim-plug!"
+
+echo "Copying configs..."
+mkdir ~/.config/nvim && cp ./configs/* ~/.config/nvim/
+echo "Copied configs!"
+
+echo "All automated steps are DONE"
+echo "Please refer to README.md for proceeding to manual steps"
