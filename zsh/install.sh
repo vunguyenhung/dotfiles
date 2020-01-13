@@ -12,4 +12,4 @@ echo "Installed ripgrep!"
 
 echo "Copying configs..."
 cp ./zshrc ~/.zshrc
-echo "Copied config!"
+echo "Copied configs!"
