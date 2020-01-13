@@ -10,9 +10,6 @@ Plug 'https://github.com/chrisbra/Colorizer'
 " auto-pairs - Insert or delete brackets, parens, quotes in pair
 Plug 'https://github.com/jiangmiao/auto-pairs'
 
-" ulti-snips - Snippets for vim
-Plug 'SirVer/ultisnips'
-
 " vim-snippets - Snippets for vim
 Plug 'https://github.com/honza/vim-snippets'
 

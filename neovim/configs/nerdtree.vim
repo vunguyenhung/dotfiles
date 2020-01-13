@@ -1,5 +1,6 @@
 " NERDTree plugin settings
 noremap <C-n> :NERDTreeToggle<CR>
+noremap <C-f> :NERDTreeFind<CR>
 let g:NERDTreeShowHidden=1
 let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir]]', '\.sass-cache$']
 let g:NERDTreeStatusline = ''
