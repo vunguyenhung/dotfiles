@@ -18,5 +18,6 @@ bash ./install.sh
 4. On "Font" section, select your installed font
 
 ## 3. Install plugins
-1. Open nvim
+1. Open nvim, ignore all the errors
 2. Run command `:PlugInstall`
+3. If there's still any error after installing plugins, please create issue
