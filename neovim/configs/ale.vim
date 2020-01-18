@@ -1,6 +1,5 @@
 let g:ale_linters = {
-\   'haskell': ['hlint', 'hdevtools'],
-\   'javascript': ['eslint'],
+\   'haskell': ['hlint', 'hdevtools']
 \}
 
 let g:ale_fixers = {

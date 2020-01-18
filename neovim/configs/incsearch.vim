@@ -21,3 +21,4 @@ endfunction
 
 " use / for fuzzy incsearch x easymotion
 noremap <silent><expr> / incsearch#go(<SID>config_easyfuzzymotion())
+noremap <silent><expr> ? incsearch#go({'command': '?'})

@@ -4,6 +4,10 @@ let mapleader = ','
 " vim-plug package manager
 call plug#begin('~/.local/share/nvim/plugged')
 
+" vim-open-github: open current line/selection on GitHub
+" TODO: must run "sudo gem install neovim" for this plugin to work
+Plug 'https://github.com/k0kubun/vim-open-github'
+
 " vim-colorizer: color hex codes and color names
 Plug 'https://github.com/chrisbra/Colorizer'
 

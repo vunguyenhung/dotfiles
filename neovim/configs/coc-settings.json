@@ -1,17 +1,19 @@
 {
-  "suggest.maxCompleteItemCount": 20,
   "eslint.filetypes": [
     "javascript",
     "typescript"
   ],
+  "javascript.validate.enable": false,
+  "snippets.userSnippetsDirectory": "$VIMCONFIG_DIR/ultisnips",
+  "diagnostic.enable": true,
   "diagnostic.infoSign": "ღ",
   "diagnostic.hintSign": "ஐ",
   "diagnostic.warningSign": "⚠",
   "diagnostic.errorSign": "✖",
-  "diagnostic.enable": true,
   "diagnostic.signOffset": 9999999,
   "diagnostic.highlightOffset": 9999999,
   "diagnostic.refreshOnInsertMode": true,
+  "suggest.maxCompleteItemCount": 20,
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
     "variable": "\ue79b",
