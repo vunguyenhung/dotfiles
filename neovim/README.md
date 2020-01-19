@@ -20,4 +20,3 @@ bash ./install.sh
 ## 3. Install plugins
 1. Run command `vi -c ':PlugInstall | :qa'`, ignore all the errors may risen before all plugins are installed
 2. After installing all plugins, launch `vi` again
-3. If there's still any error after all the step above please create an issue
