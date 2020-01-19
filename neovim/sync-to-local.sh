@@ -1,1 +1,1 @@
-cp ./configs/* $VIMCONFIG_DIR
+cp -r ./configs/* $VIMCONFIG_DIR

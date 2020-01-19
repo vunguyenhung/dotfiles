@@ -1,2 +1,2 @@
-cp ./tmux/tmux.conf ~/.tmux.conf
-cp ./tmux/tmux.paper-color-theme ~/.tmux.paper-color-theme
+cp ./tmux.conf ~/.tmux.conf
+cp ./tmux.paper-color-theme ~/.tmux.paper-color-theme

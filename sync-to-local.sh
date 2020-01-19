@@ -1,11 +1,17 @@
 echo "Syncing neovim configs..."
-bash ./neovim/sync-to-local.sh
+cd neovim
+bash ./sync-to-local.sh
+cd ..
 echo "Synced neovim configs!"
 
 echo "Syncing zsh configs..."
-bash ./zsh/sync-to-local.sh
+cd zsh
+bash ./sync-to-local.sh
+cd ..
 echo "Synced zsh configs!"
 
 echo "Syncing tmux configs..."
-bash ./tmux/sync-to-local.sh
+cd tmux
+bash ./sync-to-local.sh
+cd ..
 echo "Synced tmux configs!"
