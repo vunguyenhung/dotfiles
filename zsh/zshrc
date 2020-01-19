@@ -17,13 +17,13 @@ source $ZSH/oh-my-zsh.sh
 #########################
 
 # Setting for zsh-autosuggestions
+bindkey '`' autosuggest-accept
 
 # If using paper-color DARK theme
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=235'
 
 # If using paper-color LIGHT theme
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
-bindkey '`' autosuggest-accept
 
 # Settings for fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --sortr=accessed'
