@@ -14,3 +14,7 @@ Download iTerm 2 at: https://iterm2.com/
 2. Navigate to "Profiles" tab
 3. Navigate to "Colors" subtab, click "Color Presets..."
 4. Import colors ./colors/papercolor-light.itermcolors
+
+## 4. Settings
+### 4.1 Enable mouse selection for vim, tmux soft boundaries
+On **Edit** tab, turn on **Selection Respects Soft Boundaries**
