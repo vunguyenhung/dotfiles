@@ -24,13 +24,13 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
-snippet test "test (js)" b
+snippet tst "test (js)" b
 test('when ${1:condition}, should ${2:expect}', () => {
 	$0
 })
 endsnippet
 
-snippet atest "async test (js)" b
+snippet atst "async test (js)" b
 test('when ${1:condition}, should ${2:expect}', async () => {
 	$0
 })
@@ -43,19 +43,19 @@ function ${1:name}(${2:arguments}){
 }
 endsnippet
 
-snippet afn "Async function" b
+snippet afn "async function" b
 async function ${1:name}(${2:arguments}){
 	$0
 }
 endsnippet
 
-snippet lamb "lambda function"
+snippet lamb "lambda function" w
 (${1:arguments}) => {
 	$0
 }
 endsnippet
 
-snippet alamb "async lambda function"
+snippet alamb "async lambda function" w
 async (${1:arguments}) => {
 	$0
 }
@@ -69,6 +69,23 @@ snippet imR "import Ramda" b
 import R from 'ramda'
 endsnippet
 
+snippet Rmap "Ramda map"
+R.map(${2:mapFunction}, ${1:input})
+endsnippet
+
 snippet imLfp "import Lodash fp" b
 import Lfp from 'lodash/fp'
 endsnippet
+
+snippet expd "export default"
+export default {
+	$0
+}
+endsnippet
+
+snippet logdb "console log debug"
+console.log('DEBUG-----------------------------------')
+console.log('${1:text}', ${2:value})
+console.log('DEBUG-----------------------------------')
+endsnippet
+
