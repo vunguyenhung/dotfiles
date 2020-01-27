@@ -4,6 +4,12 @@ let mapleader = ','
 " vim-plug package manager
 call plug#begin('~/.local/share/nvim/plugged')
 
+" vim-indent-object: defines a new text object representing lines of code at the same indent level
+Plug 'https://github.com/michaeljsmith/vim-indent-object'
+
+" vim-anyfod: generic folding mechanism and motion based on indentation
+Plug 'https://github.com/pseewald/vim-anyfold'
+
 " vim-open-github: open current line/selection on GitHub
 " TODO: must run "sudo gem install neovim" for this plugin to work
 Plug 'https://github.com/k0kubun/vim-open-github'
@@ -103,6 +109,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
 
 call plug#end()
+
+" vim-anyfod settings
+source $VIMCONFIG_DIR/vim_anyfold.vim
 
 " vim-startify settings
 source $VIMCONFIG_DIR/vim_startify.vim
