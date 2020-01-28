@@ -1,10 +1,12 @@
 # vunguyenhung dotfiles
+## Prerequisite
+- macOS Mojave or above
 
-## Screenshot
+## Preview
 ![Screenshot](screenshot.png)
 
 ## Install
-### Change directory to each sub-directory and follow their README.md
+### Change directory to each sub-directory and follow its README.md
 1. Install [iterm](./iterm)
 2. Install [homebrew](./homebrew)
 3. Install [zsh](./zsh)
