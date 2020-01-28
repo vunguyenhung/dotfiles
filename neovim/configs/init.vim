@@ -10,10 +10,6 @@ Plug 'https://github.com/michaeljsmith/vim-indent-object'
 " vim-anyfod: generic folding mechanism and motion based on indentation
 Plug 'https://github.com/pseewald/vim-anyfold'
 
-" vim-open-github: open current line/selection on GitHub
-" TODO: must run "sudo gem install neovim" for this plugin to work
-Plug 'https://github.com/k0kubun/vim-open-github'
-
 " vim-colorizer: color hex codes and color names
 Plug 'https://github.com/chrisbra/Colorizer'
 
@@ -66,6 +62,9 @@ Plug 'https://github.com/tpope/vim-unimpaired'
 
 " vim-fugitive - git wrapper for vim
 Plug 'https://github.com/tpope/vim-fugitive.git'
+
+" rhubarb.vim: GitHub extension for fugitive.vim
+Plug 'https://github.com/tpope/vim-rhubarb'
 
 " vim-gitgutter - show git diff in the gutter
 Plug 'https://github.com/airblade/vim-gitgutter'
