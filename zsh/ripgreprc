@@ -1,0 +1,8 @@
+# Ignore cases
+--smart-case
+
+# Ignore git
+--glob=!.git/*
+
+# Sort by accessed date
+--sortr=accessed

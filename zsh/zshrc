@@ -17,22 +17,20 @@ source $ZSH/oh-my-zsh.sh
 #########################
 
 # Setting for zsh-autosuggestions
-
-# If using paper-color DARK theme
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=235'
-
-# If using paper-color LIGHT theme
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
 bindkey '`' autosuggest-accept
 
+# Settings for ripgrep
+[ -f $HOME/.ripgreprc ] && export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+
 # Settings for fzf
-export FZF_DEFAULT_COMMAND='rg --files --hidden --sortr=accessed'
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export LANG="en_US.UTF-8"
 
-# Support homebrew
+# Homebrew
 export PATH="$PATH:/usr/local/sbin:$HOME/.local/bin"
 
 # Editor
