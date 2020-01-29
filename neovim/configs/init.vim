@@ -151,6 +151,9 @@ source $VIMCONFIG_DIR/vim-abolish.vim
 " vim-markdown settings
 source $VIMCONFIG_DIR/vim-markdown.vim
 
+" vim-fugitive settings
+source $VIMCONFIG_DIR/vim-fugitive.vim
+
 " Tab shortcuts
 nnoremap <C-t>n :tabnew<Cr>
 nnoremap <C-t>l :tabnext<CR>
