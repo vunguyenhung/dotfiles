@@ -7,7 +7,7 @@ bash ./vim-plug.sh
 echo "Installed vim-plug!"
 
 echo "Copying configs..."
-mkdir ~/.config/nvim && cp ./configs/* ~/.config/nvim/
+mkdir ~/.config/nvim && cp -r ./configs/* ~/.config/nvim/
 echo "Copied configs!"
 
 echo "All automated steps are DONE"
