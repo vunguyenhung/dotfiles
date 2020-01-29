@@ -16,6 +16,10 @@ source $ZSH/oh-my-zsh.sh
 #### USER CONFIGURATION
 #########################
 
+# Disable matching
+# More info: https://github.com/ohmyzsh/ohmyzsh/issues/31#issuecomment-359728582
+unsetopt nomatch
+
 # Setting for zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
 bindkey '`' autosuggest-accept
