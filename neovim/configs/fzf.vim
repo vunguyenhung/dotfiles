@@ -23,4 +23,4 @@ nnoremap ` :Files<CR>
 nnoremap <leader>` :RG<CR>
 
 " Search commits
-nnoremap <leader>c :Commits<CR>
+nnoremap <leader>gc :Commits<CR>
