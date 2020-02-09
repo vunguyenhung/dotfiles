@@ -109,6 +109,9 @@ Plug 'mhinz/vim-startify'
 
 call plug#end()
 
+" vim-surround settings
+source $VIMCONFIG_DIR/vim_surround.vim
+
 " vim-anyfod settings
 source $VIMCONFIG_DIR/vim_anyfold.vim
 
