@@ -8,6 +8,7 @@ plugins=(
   git
   zsh-autosuggestions
   zsh-nvm
+  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -52,8 +53,6 @@ alias zshreload="source $HOME/.zshrc"
 
 # TMUX aliases
 alias tmuxconfig="vi $HOME/.tmux.conf"
-alias tmuxns="tmux new -s $USER"
-alias tmuxat="tmux attach -t $USER"
 
 # VIM
 export VIMCONFIG="$HOME/.config/nvim/init.vim"
