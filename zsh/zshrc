@@ -64,6 +64,8 @@ alias viconfig="cd $VIMCONFIG_DIR && vi init.vim"
 alias cl="clear"
 # Clear screen AND buffer: source https://unix.stackexchange.com/a/531178
 alias clb="printf '\ec\e[3J'"
+# Ignore man errors on macOS Catalina
+alias man="man 2>/dev/null"
 
 # ShopBack
 [ -f $HOME/.shopback.zsh ] && source $HOME/.shopback.zsh
