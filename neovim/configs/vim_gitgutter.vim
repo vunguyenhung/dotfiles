@@ -1,3 +1,4 @@
 set updatetime=100
-nmap <Leader>ha <Plug>(GitGutterStageHunk)
-nmap <Leader>hr <Plug>(GitGutterUndoHunk)
+nmap <Leader>ga <Plug>(GitGutterStageHunk)
+nmap <Leader>gp <Plug>(GitGutterPreviewHunk)
+nmap <Leader>gr <Plug>(GitGutterUndoHunk)

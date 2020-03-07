@@ -62,10 +62,17 @@ alias viconfig="cd $VIMCONFIG_DIR && vi init.vim"
 # Utils
 # Clear screen but keep buffer
 alias cl="clear"
+
 # Clear screen AND buffer: source https://unix.stackexchange.com/a/531178
 alias clb="printf '\ec\e[3J'"
+
 # Ignore man errors on macOS Catalina
 alias man="man 2>/dev/null"
+
+# Kill the process ocupying a port
+function killport() {
+  lsof -nti:$1 | xargs kill -9
+}
 
 # ShopBack
 [ -f $HOME/.shopback.zsh ] && source $HOME/.shopback.zsh
