@@ -3,7 +3,9 @@ let g:coc_config_home = $VIMCONFIG_DIR
 let g:coc_global_extensions = ["coc-eslint",
             \ "coc-json",
             \ "coc-snippets",
-            \ "coc-prettier"]
+            \ "coc-prettier",
+            " requires rustup: https://github.com/neoclide/coc-rls#quick-start
+            \ "coc-rls"]
 
 " if hidden is not set, TextEdit might fail.
 set hidden

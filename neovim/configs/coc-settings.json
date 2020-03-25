@@ -3,6 +3,10 @@
     "javascript",
     "typescript"
   ],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "rust"
+  ],
+  "rust.wait_to_build": 250,
   "javascript.validate.enable": false,
   "snippets.userSnippetsDirectory": "$VIMCONFIG_DIR/ultisnips",
   "diagnostic.enable": true,
