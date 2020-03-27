@@ -187,8 +187,7 @@ set autoread | au CursorHold * checktime
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
-" Set relative line number
-set relativenumber
+set number
 
 " Use space, soft tab
 set tabstop=2
