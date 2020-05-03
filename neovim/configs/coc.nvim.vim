@@ -4,7 +4,8 @@ let g:coc_global_extensions = ["coc-eslint",
             \ "coc-json",
             \ "coc-snippets",
             \ "coc-prettier",
-            \ "coc-rls"]
+            \ "coc-rls",
+            \ "coc-tsserver"]
             " requires rustup: https://github.com/neoclide/coc-rls#quick-start
 
 " if hidden is not set, TextEdit might fail.
