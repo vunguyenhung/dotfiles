@@ -4,6 +4,9 @@ let mapleader = ','
 " vim-plug package manager
 call plug#begin('~/.local/share/nvim/plugged')
 
+" rust.vim: Rust support for vim
+Plug 'https://github.com/rust-lang/rust.vim'
+
 " vim-indent-object: defines a new text object representing lines of code at the same indent level
 Plug 'https://github.com/michaeljsmith/vim-indent-object'
 
