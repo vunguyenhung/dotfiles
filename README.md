@@ -7,9 +7,10 @@
 
 ## Install
 ### Change directory to each sub-directory and follow its README.md
-1. Install [iterm](./iterm)
-2. Install [homebrew](./homebrew)
-3. Install [zsh](./zsh)
-4. Install [tmux](./tmux)
-5. Install [neovim](./neovim)
-6. Setting [System Preferences](./system-preferences)
+1. Install [iTerm2](./iterm)
+2. Install [Homebrew](./homebrew)
+3. Install [Zsh](./zsh)
+4. Install [Tmux](./tmux)
+5. Install [Rust Programming Language](./rust)
+6. Install [Neovim](./neovim)
+7. Setting [System Preferences](./system-preferences)
