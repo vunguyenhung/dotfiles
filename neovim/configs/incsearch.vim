@@ -19,6 +19,7 @@ function! s:config_easyfuzzymotion(...) abort
   \ }), get(a:, 1, {}))
 endfunction
 
-" use / for fuzzy incsearch x easymotion
-noremap <silent><expr> / incsearch#go(<SID>config_easyfuzzymotion())
-noremap <silent><expr> ? incsearch#go({'command': '?'})
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+noremap <silent><expr> <leader>/ incsearch#go(<SID>config_easyfuzzymotion())
