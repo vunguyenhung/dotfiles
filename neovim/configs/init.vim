@@ -10,9 +10,6 @@ Plug 'https://github.com/rust-lang/rust.vim'
 " vim-indent-object: defines a new text object representing lines of code at the same indent level
 Plug 'https://github.com/michaeljsmith/vim-indent-object'
 
-" vim-anyfod: generic folding mechanism and motion based on indentation
-Plug 'https://github.com/pseewald/vim-anyfold'
-
 " vim-colorizer: color hex codes and color names
 Plug 'https://github.com/chrisbra/Colorizer'
 
@@ -114,9 +111,6 @@ call plug#end()
 
 " vim-surround settings
 source $VIMCONFIG_DIR/vim_surround.vim
-
-" vim-anyfod settings
-source $VIMCONFIG_DIR/vim_anyfold.vim
 
 " vim-startify settings
 source $VIMCONFIG_DIR/vim_startify.vim

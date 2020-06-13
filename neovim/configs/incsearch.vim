@@ -23,5 +23,5 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 noremap <silent><expr> <leader>/ incsearch#go(<SID>config_easyfuzzymotion())
-" Auto input the first register into search
+" search forward, auto input the first register
 map /r  <Plug>(incsearch-forward)<C-r>"

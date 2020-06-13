@@ -1,5 +1,6 @@
 let g:ale_linters = {
-\   'haskell': ['hlint', 'hdevtools']
+\   'haskell': ['hlint', 'hdevtools'],
+\   'javascript': ['eslint'],
 \}
 
 let g:ale_fixers = {
@@ -20,6 +21,6 @@ let g:ale_lint_on_save = 1
 let g:ale_linters_explicit = 1
 
 " Map keys
-nmap <silent> <leader>j :ALENext<cr>
-nmap <silent> <leader>k :ALEPrevious<cr>
-nmap <silent> <leader>d :ALEDetail<cr>
+nmap <silent> ]g :ALENext<cr>
+nmap <silent> [g :ALEPrevious<cr>
+nmap <silent> [d :ALEDetail<cr>

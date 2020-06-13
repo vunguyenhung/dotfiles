@@ -13,3 +13,6 @@ nnoremap <Leader>sG :$,Subvert/
 
 " Substitute the entire file
 nnoremap <Leader>S :%Subvert/
+
+" Substitute the entire file, auto input the first register
+nnoremap <Leader>Sr :%Subvert/<C-r>"/

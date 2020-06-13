@@ -3,6 +3,8 @@ noremap <C-n> :NERDTreeToggle<CR>
 noremap <C-f> :NERDTreeFind<CR>
 let g:NERDTreeShowHidden=1
 let g:NERDTreeShowLineNumbers=1
+let g:NERDTreeMapOpenVSplit='<C-v>'
+let g:NERDTreeMapOpenSplit='<C-x>'
 let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir]]', '\.sass-cache$']
 " Automaticaly close nvim if NERDTree is only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

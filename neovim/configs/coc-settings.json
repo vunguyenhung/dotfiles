@@ -1,13 +1,15 @@
 {
-  "eslint.filetypes": [
-    "javascript",
-    "typescript"
-  ],
   "coc.preferences.formatOnSaveFiletypes": [
     "rust"
   ],
   "rust.wait_to_build": 250,
   "javascript.validate.enable": false,
+  "typescript.validate.enable": false,
+  "javascript.suggest.enabled": false,
+  "typescript.suggest.enabled": false,
+  "typescript.format.enabled": false,
+  "javascript.format.enabled": false,
+  "tsserver.npm": "~/.nvm/versions/node/v12.18.0/bin/npm",
   "snippets.userSnippetsDirectory": "$VIMCONFIG_DIR/ultisnips",
   "diagnostic.enable": true,
   "diagnostic.infoSign": "ღ",
@@ -17,32 +19,5 @@
   "diagnostic.signOffset": 9999999,
   "diagnostic.highlightOffset": 9999999,
   "diagnostic.refreshOnInsertMode": true,
-  "suggest.maxCompleteItemCount": 20,
-  "suggest.completionItemKindLabels": {
-    "keyword": "\uf1de",
-    "variable": "\ue79b",
-    "value": "\uf89f",
-    "operator": "\u03a8",
-    "function": "\u0192",
-    "reference": "\ufa46",
-    "constant": "\uf8fe",
-    "method": "\uf09a",
-    "struct": "\ufb44",
-    "class": "\uf0e8",
-    "interface": "\uf417",
-    "text": "\ue612",
-    "enum": "\uf435",
-    "enumMember": "\uf02b",
-    "module": "\uf40d",
-    "color": "\ue22b",
-    "property": "\ue624",
-    "field": "\uf9be",
-    "unit": "\uf475",
-    "event": "\ufacd",
-    "file": "\uf723",
-    "folder": "\uf114",
-    "snippet": "\ue60b",
-    "typeParameter": "\uf728",
-    "default": "\uf29c"
-  }
+  "suggest.maxCompleteItemCount": 20
 }
