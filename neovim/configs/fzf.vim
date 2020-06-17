@@ -19,8 +19,12 @@ let g:fzf_commits_log_options = '--graph --color=always --decorate --all --reflo
 
 " Search files
 nnoremap ` :Files<CR>
+
 " Search code
 nnoremap <leader>` :RG<CR>
+
+" Search code, auto input the first register
+nnoremap <leader>`r :RG <C-r>"<CR>
 
 " Search commits
 nnoremap <leader>gc :Commits<CR>
