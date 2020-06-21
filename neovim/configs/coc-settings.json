@@ -10,7 +10,7 @@
   "typescript.format.enabled": false,
   "javascript.format.enabled": false,
   "tsserver.npm": "~/.nvm/versions/node/v12.18.0/bin/npm",
-  "snippets.userSnippetsDirectory": "$VIMCONFIG_DIR/ultisnips",
+  "snippets.userSnippetsDirectory": "$VIMCONFIG_DIR/snippets",
   "diagnostic.enable": true,
   "diagnostic.infoSign": "ღ",
   "diagnostic.hintSign": "ஐ",
