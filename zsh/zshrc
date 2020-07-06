@@ -29,7 +29,6 @@ bindkey '`' autosuggest-accept
 [ -f $HOME/.ripgreprc ] && export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 # Settings for fzf
-export FZF_DEFAULT_COMMAND='rg --files --hidden'
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

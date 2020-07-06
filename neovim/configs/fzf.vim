@@ -4,7 +4,7 @@ command! -bang -nargs=* Rg
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
-" :RG - Improved Rg
+" Improved Rg
 function! RipgrepFzf(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
@@ -16,6 +16,10 @@ command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
 " [[B]Commits] Customize the options used by 'git log':
 let g:fzf_commits_log_options = '--graph --color=always --decorate --all --reflog --format="%C(auto)%h%d %s | %C(auto)%C(bold)%cr"'
+
+let g:fzf_files_options = '--bind alt-a:select-all,alt-d:deselect-all'
+
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 
 " Search files
 nnoremap ` :Files<CR>
