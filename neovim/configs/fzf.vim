@@ -17,8 +17,6 @@ command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 " [[B]Commits] Customize the options used by 'git log':
 let g:fzf_commits_log_options = '--graph --color=always --decorate --all --reflog --format="%C(auto)%h%d %s | %C(auto)%C(bold)%cr"'
 
-let g:fzf_files_options = '--bind alt-a:select-all,alt-d:deselect-all'
-
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 
 " Search files
