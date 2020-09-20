@@ -1,12 +1,14 @@
 let g:ale_linters = {
 \   'haskell': ['hlint', 'hdevtools'],
 \   'javascript': ['eslint'],
+\   'typescript': ['tsserver', 'eslint'],
 \}
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'haskell': ['hlint', 'stylish-haskell', 'hindent'],
 \   'javascript': ['prettier-eslint'],
+\   'typescript': ['prettier-eslint'],
 \}
 
 " TODO: run the following
@@ -23,4 +25,4 @@ let g:ale_linters_explicit = 1
 " Map keys
 nmap <silent> ]g :ALENext<cr>
 nmap <silent> [g :ALEPrevious<cr>
-nmap <silent> [d :ALEDetail<cr>
+nmap <silent> ]d :ALEDetail<cr>

@@ -3,21 +3,15 @@
     "rust"
   ],
   "rust.wait_to_build": 250,
+  "snippets.userSnippetsDirectory": "$VIMCONFIG_DIR/snippets",
+  "suggest.maxCompleteItemCount": 20,
+  "diagnostic.enable": false,
+  "diagnostic.displayByAle": true,
   "javascript.validate.enable": false,
-  "typescript.validate.enable": false,
   "javascript.suggest.enabled": false,
+  "javascript.format.enabled": false,
+  "typescript.validate.enable": false,
   "typescript.suggest.enabled": false,
   "typescript.format.enabled": false,
-  "javascript.format.enabled": false,
-  "tsserver.npm": "~/.nvm/versions/node/v12.18.0/bin/npm",
-  "snippets.userSnippetsDirectory": "$VIMCONFIG_DIR/snippets",
-  "diagnostic.enable": true,
-  "diagnostic.infoSign": "ღ",
-  "diagnostic.hintSign": "ஐ",
-  "diagnostic.warningSign": "⚠",
-  "diagnostic.errorSign": "✖",
-  "diagnostic.signOffset": 9999999,
-  "diagnostic.highlightOffset": 9999999,
-  "diagnostic.refreshOnInsertMode": true,
-  "suggest.maxCompleteItemCount": 20
+  "tsserver.npm": "~/.nvm/versions/node/v12.18.4/bin/npm"
 }
