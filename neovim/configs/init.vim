@@ -112,6 +112,9 @@ Plug 'mhinz/vim-startify'
 
 call plug#end()
 
+" " LanguageClient-neovim config
+" source $VIMCONFIG_DIR/language_client_neovim.vim
+
 " vim-surround settings
 source $VIMCONFIG_DIR/vim_surround.vim
 
@@ -213,3 +216,6 @@ set splitright
 
 " Disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Hide E37: No write since last change
+autocmd FileType netrw setl bufhidden=delete
