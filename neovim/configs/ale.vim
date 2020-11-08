@@ -2,6 +2,7 @@ let g:ale_linters = {
 \   'haskell': ['hlint', 'hdevtools'],
 \   'javascript': ['eslint'],
 \   'typescript': ['tsserver', 'eslint'],
+\   'rust': ['rls']
 \}
 
 let g:ale_fixers = {
@@ -9,6 +10,7 @@ let g:ale_fixers = {
 \   'haskell': ['hlint', 'stylish-haskell', 'hindent'],
 \   'javascript': ['prettier-eslint'],
 \   'typescript': ['prettier-eslint'],
+\   'rust': ['rustfmt']
 \}
 
 " TODO: run the following

@@ -17,7 +17,7 @@ Plug 'https://github.com/chrisbra/Colorizer'
 Plug 'https://github.com/jiangmiao/auto-pairs'
 
 " vim-snippets - Snippets for vim
-Plug 'https://github.com/honza/vim-snippets'
+Plug 'https://github.com/SirVer/ultisnips'
 
 " Vim theme
 Plug 'https://github.com/NLKNguyen/papercolor-theme'
@@ -146,16 +146,16 @@ source $VIMCONFIG_DIR/vim_gitgutter.vim
 source $VIMCONFIG_DIR/fzf.vim
 
 " vim-easymotion settings
-source $VIMCONFIG_DIR/vim-easymotion.vim
+source $VIMCONFIG_DIR/vim_easymotion.vim
 
 " vim-abolish settings
-source $VIMCONFIG_DIR/vim-abolish.vim
+source $VIMCONFIG_DIR/vim_abolish.vim
 
 " vim-markdown settings
-source $VIMCONFIG_DIR/vim-markdown.vim
+source $VIMCONFIG_DIR/vim_markdown.vim
 
 " vim-fugitive settings
-source $VIMCONFIG_DIR/vim-fugitive.vim
+source $VIMCONFIG_DIR/vim_fugitive.vim
 
 " Tab shortcuts
 nnoremap <C-t>n :tabnew<Cr>
