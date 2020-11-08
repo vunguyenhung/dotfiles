@@ -7,8 +7,8 @@
 
 ## Install
 ### Change directory to each sub-directory and follow its README.md
-1. Install [iTerm2](./iterm)
-2. Install [Homebrew](./homebrew)
+1. Install [Homebrew](./homebrew)
+2. Install [Alacritty](./alacritty)
 3. Install [Zsh](./zsh)
 4. Install [Tmux](./tmux)
 5. Install [Rust Programming Language](./rust)

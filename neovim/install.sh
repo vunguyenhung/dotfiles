@@ -10,5 +10,6 @@ echo "Copying configs..."
 mkdir ~/.config/nvim && cp -r ./configs/* ~/.config/nvim/
 echo "Copied configs!"
 
-echo "All automated steps are DONE"
-echo "Please refer to README.md for proceeding to manual steps"
+echo "Installing Vim Plugins..."
+vi -c ':PlugInstall | :qa'
+echo "Installed Vim Plugins!"
