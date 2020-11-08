@@ -62,6 +62,7 @@ cursor:
   thickness: 0.15
 
 key_bindings:
+  - { key: A,        mods: Alt,     chars: "\x1ba"                       }
   # Moving around
   - { key: J,        mods: Alt,     chars: "\x1bj"                       }
   - { key: K,        mods: Alt,     chars: "\x1bk"                       }
