@@ -16,10 +16,7 @@ Plug 'https://github.com/chrisbra/Colorizer'
 " auto-pairs - Insert or delete brackets, parens, quotes in pair
 Plug 'https://github.com/jiangmiao/auto-pairs'
 
-" vim-snippets - Snippets for vim
-Plug 'https://github.com/SirVer/ultisnips'
-
-" Vim theme
+" Vim Paper color theme
 Plug 'https://github.com/NLKNguyen/papercolor-theme'
 
 " Haskell support for vim

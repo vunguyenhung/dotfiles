@@ -22,7 +22,7 @@ nnoremap ` :Files<CR>
 nnoremap <leader>` :RG<CR>
 
 " Search code, auto input the first register
-nnoremap <leader>`r :RG <C-r>"<CR>
+nnoremap <leader>`` :RG <C-r>"<CR>
 
 " Search commits
 nnoremap <leader>gc :Commits<CR>
