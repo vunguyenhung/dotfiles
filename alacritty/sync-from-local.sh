@@ -1,1 +1,1 @@
-cp ~/.alacrity.yml ./alacritty.yml
+cp ~/.alacritty.yml ./alacritty.yml
