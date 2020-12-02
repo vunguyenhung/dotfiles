@@ -7,19 +7,19 @@ window:
 
 font:
   normal:
-    family: FiraCode Nerd Font
-    style: Regular
+    family: FiraCode Nerd Font Mono
+    style: Retina
 
   bold:
-    family: FiraCode Nerd Font
+    family: FiraCode Nerd Font Mono
     style: Bold
 
   italic:
-    family: FiraCode Nerd Font
+    family: FiraCode Nerd Font Mono
     style: Italic
 
   bold_italic:
-    family: FiraCode Nerd Font
+    family: FiraCode Nerd Font Mono
     style: Bold Italic
 
   size: 14.0
@@ -51,7 +51,7 @@ colors:
   bright:
     black:   '#bcbcbc'
     red:     '#d70000'
-    green:   '#d70087'
+    green:   '#4CAF50'
     yellow:  '#8700af'
     blue:    '#d75f00'
     magenta: '#d75f00'
