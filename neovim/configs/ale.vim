@@ -9,7 +9,7 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'haskell': ['hlint', 'stylish-haskell', 'hindent'],
 \   'javascript': ['prettier-eslint'],
-\   'typescript': ['prettier-eslint'],
+\   'typescript': ['prettier'],
 \   'rust': ['rustfmt']
 \}
 
