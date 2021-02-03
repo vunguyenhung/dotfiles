@@ -36,8 +36,8 @@ Plug 'dense-analysis/ale'
 " vim-polyglot - syntax highlight
 Plug 'sheerun/vim-polyglot'
 
-" Yet Another TypeScript Syntax - typescript syntax highlight
-Plug 'https://github.com/HerringtonDarkholme/yats.vim'
+" Typescript syntax highlight
+Plug 'leafgarland/typescript-vim'
 
 " vim-markdown - syntax for markdown
 Plug 'https://github.com/plasticboy/vim-markdown'
