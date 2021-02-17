@@ -61,6 +61,9 @@ colors:
 cursor:
   thickness: 0.15
 
+mouse:
+  hide_when_typing: true
+
 key_bindings:
   - { key: A,        mods: Alt,     chars: "\x1ba"                       }
   # Moving around
