@@ -4,8 +4,15 @@ brew install zsh
 echo "Installing ohmyzsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-echo "Installing ripgrep..."
+echo "Installing plugins..."
+# ripgrep
 brew install ripgrep
+
+# zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# zsh-nvm
+git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
 
 echo "Backing up your configs..."
 mkdir -p ~/.backup/dotfiles/zsh

@@ -2,5 +2,5 @@
 
 ## 1. Install
 ```bash
-bash./install.sh
+bash ./install.sh
 ```
