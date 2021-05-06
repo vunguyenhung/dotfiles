@@ -1,0 +1,88 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet tst "test (ts)" b
+test('when ${1:condition}, should ${2:expect}', () => {
+	$0
+})
+endsnippet
+
+snippet atst "async test (ts)" b
+test('when ${1:condition}, should ${2:expect}', async () => {
+	$0
+})
+endsnippet
+
+
+snippet fn "function" b
+function ${1:name}(${2:arguments}){
+	$0
+}
+endsnippet
+
+snippet afn "async function" b
+async function ${1:name}(${2:arguments}){
+	$0
+}
+endsnippet
+
+snippet lamb "lambda function" w
+(${1:arguments}) => {
+	$0
+}
+endsnippet
+
+snippet alamb "async lambda function" w
+async (${1:arguments}) => {
+	$0
+}
+endsnippet
+
+snippet imBB "import Bluebird Promise" b
+import BPromise from 'bluebird'
+endsnippet
+
+snippet imLfp "import Lodash fp" b
+import * as Lfp from 'lodash/fp'
+endsnippet
+
+snippet expd "export default"
+export default {
+	$0
+}
+endsnippet
+
+snippet if "if"
+if (${1:condition}) {
+	$0
+}
+endsnippet
+
+snippet logdb "console log debug"
+console.log('DEBUG-----------------------------------')
+console.log('${1:text}', ${2:value})
+console.log('DEBUG-----------------------------------')
+endsnippet
