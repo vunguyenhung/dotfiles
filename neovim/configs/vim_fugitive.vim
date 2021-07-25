@@ -1,2 +1,2 @@
 " Open git status
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gs :Git<CR>

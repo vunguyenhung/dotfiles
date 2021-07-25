@@ -11,6 +11,10 @@ nnoremap <Leader>s{ :?{?,/}/Subvert/
 " Substitute until the end of the file, starts from the cursor
 nnoremap <Leader>sG :$,Subvert/
 
+" Substitute until the end of the file, starts from the cursor,
+" auto input the first register
+nnoremap <Leader>sGr :$,Subvert/<C-r>"/
+
 " Substitute the entire file
 nnoremap <Leader>S :%Subvert/
 

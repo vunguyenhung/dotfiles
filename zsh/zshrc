@@ -75,3 +75,4 @@ function killport() {
 
 # ShopBack
 [ -f $HOME/.shopback.zsh ] && source $HOME/.shopback.zsh
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
