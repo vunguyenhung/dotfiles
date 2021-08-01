@@ -13,5 +13,14 @@
   "typescript.validate.enable": false,
   "typescript.suggest.enabled": false,
   "typescript.format.enabled": false,
-  "tsserver.npm": "~/.nvm/versions/node/v12.20.0/bin/npm"
+  "tsserver.npm": "~/.nvm/versions/node/v12.20.0/bin/npm",
+  // elmlang
+  // execute: npm install -g @elm-tooling/elm-language-server
+  "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"]
+    }
+  },
 }
