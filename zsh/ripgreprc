@@ -3,6 +3,7 @@
 
 # Ignore git
 --glob=!.git/*
+--glob=!package-lock.json
 
 # Sort by accessed date
 --sortr=accessed
