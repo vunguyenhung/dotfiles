@@ -3,6 +3,7 @@
     "rust"
   ],
   "rust.wait_to_build": 250,
+  "rust.build_on_save": true,
   "snippets.userSnippetsDirectory": "$VIMCONFIG_DIR/snippets",
   "suggest.maxCompleteItemCount": 10,
   "diagnostic.enable": false,
@@ -22,5 +23,5 @@
       "filetypes": ["elm"],
       "rootPatterns": ["elm.json"]
     }
-  },
+  }
 }

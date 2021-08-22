@@ -11,6 +11,7 @@ let g:ale_fixers = {
 \   'haskell': ['hlint', 'stylish-haskell', 'hindent'],
 \   'javascript': ['prettier', 'eslint'],
 \   'typescript': ['prettier'],
+\   'json': ['prettier'],
 \   'rust': ['rustfmt'],
 \   'elm': ['elm-format']
 \}
@@ -23,10 +24,12 @@ let g:ale_fixers = {
 
 let g:ale_haskell_hdevtools_options = '-g -Wall'
 let g:ale_fix_on_save = 1
-let g:ale_lint_on_save = 1
 let g:ale_linters_explicit = 1
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_save = 1
 
 " Map keys
 nmap <silent> ]g :ALENext<cr>
 nmap <silent> [g :ALEPrevious<cr>
-nmap <silent> ]d :ALEDetail<cr>
+nmap <silent> gi :ALEDetail<cr>
