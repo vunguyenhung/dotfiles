@@ -1,20 +1,23 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "rust"
-  ],
-  "rust.wait_to_build": 250,
-  "rust.build_on_save": true,
-  "snippets.userSnippetsDirectory": "$VIMCONFIG_DIR/snippets",
+  // general
   "suggest.maxCompleteItemCount": 10,
   "diagnostic.enable": false,
   "diagnostic.displayByAle": true,
+
+  // snippets
+  "snippets.userSnippetsDirectory": "$VIMCONFIG_DIR/snippets",
+
+  // Javascript
   "javascript.validate.enable": false,
   "javascript.suggest.enabled": false,
   "javascript.format.enabled": false,
+
+  // Typescript
   "typescript.validate.enable": false,
   "typescript.suggest.enabled": false,
   "typescript.format.enabled": false,
   "tsserver.npm": "~/.nvm/versions/node/v12.20.0/bin/npm",
+
   // elmlang
   // execute: npm install -g @elm-tooling/elm-language-server
   "languageserver": {
@@ -23,5 +26,12 @@
       "filetypes": ["elm"],
       "rootPatterns": ["elm.json"]
     }
-  }
+  },
+
+  // rustlang
+  "coc.preferences.formatOnSaveFiletypes": [
+    "rust"
+  ],
+  "rust.wait_to_build": 250,
+  "rust.build_on_save": true
 }
