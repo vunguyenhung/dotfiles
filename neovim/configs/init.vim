@@ -4,6 +4,9 @@ let mapleader = ','
 " vim-plug package manager
 call plug#begin('~/.local/share/nvim/plugged')
 
+" snippets for various languages
+Plug 'https://github.com/honza/vim-snippets'
+
 " rust.vim: Rust support for vim
 Plug 'https://github.com/rust-lang/rust.vim'
 
