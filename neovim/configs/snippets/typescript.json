@@ -1,0 +1,11 @@
+{
+  "console.log debug": {
+    "prefix": "logdb",
+    "body": [
+      "console.log('DEBUG-----------------------------------')",
+      "console.log('${1:text}', ${2:value})",
+      "console.log('DEBUG-----------------------------------')"
+    ],
+    "description": "console.log debug"
+  }
+}

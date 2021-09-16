@@ -28,35 +28,38 @@ font:
 
 draw_bold_text_with_bright_colors: true
 
-# Colors (PaperColor - Light)
+# Colors (TokyoNight - Night)
 colors:
+  # Default colors
   primary:
-    background: '#eeeeee'
-    foreground: '#4c4c4c'
+    background: '0x1a1b26'
+    foreground: '0xc0caf5'
 
-  cursor:
-    text: '#eeeeee'
-    cursor: '#4c4c4c'
-
+  # Normal colors
   normal:
-    black:   '#eeeeee'
-    red:     '#af0000'
-    green:   '#008700'
-    yellow:  '#5f8700'
-    blue:    '#0087af'
-    magenta: '#4c4c4c'
-    cyan:    '#005f87'
-    white:   '#444444'
+    black:   '0x15161E'
+    red:     '0xf7768e'
+    green:   '0x9ece6a'
+    yellow:  '0xe0af68'
+    blue:    '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan:    '0x7dcfff'
+    white:   '0xa9b1d6'
 
+  # Bright colors
   bright:
-    black:   '#bcbcbc'
-    red:     '#d70000'
-    green:   '#4CAF50'
-    yellow:  '#8700af'
-    blue:    '#d75f00'
-    magenta: '#d75f00'
-    cyan:    '#005faf'
-    white:   '#eeeeee'
+    black:   '0x414868'
+    red:     '0xf7768e'
+    green:   '0x9ece6a'
+    yellow:  '0xe0af68'
+    blue:    '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan:    '0x7dcfff'
+    white:   '0xc0caf5'
+
+  indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }
 
 cursor:
   thickness: 0.15

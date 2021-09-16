@@ -1,11 +1,8 @@
-" Map leader to , key
-let mapleader = ','
+" Map leader to <space> key
+let mapleader = "\<Space>"
 
 " vim-plug package manager
 call plug#begin('~/.local/share/nvim/plugged')
-
-" snippets for various languages
-Plug 'https://github.com/honza/vim-snippets'
 
 " rust.vim: Rust support for vim
 Plug 'https://github.com/rust-lang/rust.vim'
@@ -19,9 +16,6 @@ Plug 'https://github.com/chrisbra/Colorizer'
 " auto-pairs - Insert or delete brackets, parens, quotes in pair
 Plug 'https://github.com/jiangmiao/auto-pairs'
 
-" Vim Paper color theme
-Plug 'https://github.com/NLKNguyen/papercolor-theme'
-
 " Haskell support for vim
 Plug 'https://github.com/neovimhaskell/haskell-vim'
 
@@ -32,9 +26,6 @@ Plug 'https://github.com/easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
-
-" ale - async lint engine
-Plug 'dense-analysis/ale'
 
 " vim-polyglot - syntax highlight
 Plug 'sheerun/vim-polyglot'
@@ -54,9 +45,6 @@ Plug 'https://github.com/melonmanchan/vim-tmux-resizer'
 " vim-commentary - comment stuff out
 Plug 'https://github.com/tpope/vim-commentary'
 
-" vim-eunuch - sugar for the UNIX shell commands
-Plug 'https://github.com/tpope/vim-eunuch'
-
 " vim-abolish - better replace
 Plug 'https://github.com/tpope/vim-abolish'
 
@@ -69,18 +57,11 @@ Plug 'https://github.com/tpope/vim-fugitive.git'
 " rhubarb.vim: GitHub extension for fugitive.vim
 Plug 'https://github.com/tpope/vim-rhubarb'
 
-" vim-gitgutter - show git diff in the gutter
-Plug 'https://github.com/airblade/vim-gitgutter'
-
 " nerdtree - file system explore
 Plug 'scrooloose/nerdtree'
 
 " Vim sugar for the UNIX shell commands
 Plug 'https://github.com/tpope/vim-eunuch'
-
-" vim-airline - vim status bar improved
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 " fzf - fuzzy file search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -101,16 +82,50 @@ Plug 'https://github.com/tpope/vim-surround'
 " repeat, use `.` command to repeat plugin command
 Plug 'https://github.com/tpope/vim-repeat'
 
-" Code completion, snippet & text editing support
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"" Nvim LSP & code completion
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/lsp_extensions.nvim'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'rafamadriz/friendly-snippets'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'hoob3rt/lualine.nvim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'onsails/lspkind-nvim'
+
+" show git diff in the gutter
+Plug 'lewis6991/gitsigns.nvim'
 
 " Enable dev icons
 Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 
 " vim-startify - start screen for vim
 Plug 'mhinz/vim-startify'
 
+" Improved register
+Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+
 call plug#end()
+
+" Theme
+source $VIMCONFIG_DIR/theme.vim
+
+" Init in lua
+lua require("init")
+
+"" LSP Settings
+lua require("lsp-config")
+source $VIMCONFIG_DIR/lsp.vim
+
+" vsnip settings
+source $VIMCONFIG_DIR/vsnip.vim
 
 " vim-surround settings
 source $VIMCONFIG_DIR/vim_surround.vim
@@ -121,26 +136,11 @@ source $VIMCONFIG_DIR/vim_startify.vim
 " incsearch plugin settings
 source $VIMCONFIG_DIR/incsearch.vim
 
-" airline plugin settings
-source $VIMCONFIG_DIR/airline.vim
-
-" coc.nvim plugin settings
-source $VIMCONFIG_DIR/coc.nvim.vim
-
-" ale plugin settings
-source $VIMCONFIG_DIR/ale.vim
-
-" papercolor theme plugin settings
-source $VIMCONFIG_DIR/papercolor_theme.vim
-
 " indentLine plugin settings
 source $VIMCONFIG_DIR/indentLine.vim
 
 " nerdtree plugin settings
 source $VIMCONFIG_DIR/nerdtree.vim
-
-" vim-gitgutter plugin settings
-source $VIMCONFIG_DIR/vim_gitgutter.vim
 
 " fzf.vim settings
 source $VIMCONFIG_DIR/fzf.vim
@@ -196,16 +196,13 @@ set shiftround
 set expandtab
 
 " Copy to clipboard
-vnoremap  <leader>y  "+y
-nnoremap  <leader>Y  "+yg_
-nnoremap  <leader>y  "+y
-nnoremap  <leader>yy  "+yy
+vnoremap  Y  "+y
+nnoremap  Y  "+y
+nnoremap  YY  "+yy
 
 " Paste from clipboard
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
+nnoremap P "+p
+vnoremap P "+p
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow

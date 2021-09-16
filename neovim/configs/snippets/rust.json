@@ -1,0 +1,7 @@
+{
+  "Closure": {
+    "prefix": ["cls"],
+    "body": ["|${1:arg}| {${2:unimplemented!();}}"],
+    "description": "closure |...|{...}"
+  }
+}
