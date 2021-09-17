@@ -127,9 +127,6 @@ source $VIMCONFIG_DIR/lsp.vim
 " vsnip settings
 source $VIMCONFIG_DIR/vsnip.vim
 
-" vim-surround settings
-source $VIMCONFIG_DIR/vim_surround.vim
-
 " vim-startify settings
 source $VIMCONFIG_DIR/vim_startify.vim
 

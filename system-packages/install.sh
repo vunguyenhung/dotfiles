@@ -8,6 +8,9 @@ cargo install cargo-edit
 
 brew install rust-analyzer
 
+# github
+brew install gh
+
 # nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 
