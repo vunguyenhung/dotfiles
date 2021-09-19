@@ -43,6 +43,12 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']g', ':LspsagaDiagNext<CR>', opts)
   buf_set_keymap('n', '<space>q', ':LspSetLocList<CR>', opts)
 
+  -- Add lsp signature
+  require "lsp_signature".on_attach({
+      bind = true,
+      hint_enable = false
+  })
+
   if client.resolved_capabilities.document_formatting then
       vim.api.nvim_exec([[
         augroup LspAutocommands

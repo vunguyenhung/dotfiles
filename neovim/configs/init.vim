@@ -98,6 +98,7 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'onsails/lspkind-nvim'
+Plug 'ray-x/lsp_signature.nvim'
 
 " show git diff in the gutter
 Plug 'lewis6991/gitsigns.nvim'
