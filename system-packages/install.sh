@@ -11,10 +11,12 @@ brew install rust-analyzer
 # github
 brew install gh
 
-# nvm
+# Node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 
 nvm install --lts
+
+npm i -g dotenv-cli
 
 # Typescript LSP
 npm install -g typescript \
