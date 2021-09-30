@@ -7,5 +7,23 @@
       "console.log('DEBUG-----------------------------------')"
     ],
     "description": "console.log debug"
+  },
+  "lambda": {
+    "prefix": "lamb",
+    "body": "(${1}) => {\n\t${2}\n}",
+    "description": "lambda"
+  },
+  "alambda": {
+    "prefix": "alamb",
+    "body": "async (${1}) => {\n\t${2}\n}",
+    "description": "lambda async"
+  },
+  "import lodash fp": {
+    "prefix": "imLfp",
+    "body": "import * as Lfp from 'lodash/fp'"
+  },
+  "import bluebird": {
+    "prefix": "imBB",
+    "body": "import * as BPromise from 'bluebird'"
   }
 }

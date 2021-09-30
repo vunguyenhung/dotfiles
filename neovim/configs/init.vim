@@ -100,6 +100,12 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'ray-x/lsp_signature.nvim'
 
+" pretty list of diagnostics
+Plug 'folke/trouble.nvim'
+
+" View and search LSP symbol
+Plug 'stevearc/aerial.nvim'
+
 " show git diff in the gutter
 Plug 'lewis6991/gitsigns.nvim'
 

@@ -30,7 +30,6 @@ local on_attach = function(client, bufnr)
   vim.cmd("command! LspsagaDiagPrev lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()")
 
   buf_set_keymap('n', 'gd', ':LspDefinition<CR>', opts)
-  buf_set_keymap('n', '<C-k>', ':Lspsaga preview_definition<CR>', opts)
   buf_set_keymap('n', 'K', ':Lspsaga hover_doc<CR>', opts)
   buf_set_keymap('n', '<C-v>', ':LspsagaSmartScrollUp<CR>', opts)
   buf_set_keymap('n', '<C-b>', ':LspsagaSmartScrollDown<CR>', opts)
@@ -41,14 +40,15 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>e', ':LspsagaShowLineDiag<CR>', opts)
   buf_set_keymap('n', '[g', ':LspsagaDiagPrev<CR>', opts)
   buf_set_keymap('n', ']g', ':LspsagaDiagNext<CR>', opts)
-  buf_set_keymap('n', '<space>q', ':LspSetLocList<CR>', opts)
+  buf_set_keymap('n', '<space>q', ':TroubleToggle lsp_document_diagnostics<CR>', opts)
+  buf_set_keymap('n', '<space>Q', ':TroubleToggle lsp_workspace_diagnostics<CR>', opts)
+  buf_set_keymap('n', '<space>n', ':AerialToggle!<CR>', opts)
 
-  -- Add lsp signature
-  require "lsp_signature".on_attach({
-      bind = true,
-      hint_enable = false
-  })
 
+  -- Add navigation
+  require("aerial").on_attach(client)
+
+  -- auto formatting
   if client.resolved_capabilities.document_formatting then
       vim.api.nvim_exec([[
         augroup LspAutocommands
@@ -58,6 +58,14 @@ local on_attach = function(client, bufnr)
         ]], true)
   end
 end
+
+-- Add lsp signature help
+require "lsp_signature".setup({
+  bind = true,
+  hint_enable = false,
+  max_height = 3,
+  auto_close_after = 2
+})
 
 -- Completion
 local check_back_space = function()
@@ -129,8 +137,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 -- Improved lsp
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
+require("trouble").setup{}
 
--- Auto format
+-- Enable Async format
 local format_async = function(err, _, result, _, bufnr)
     if err ~= nil or result == nil then return end
     if not vim.api.nvim_buf_get_option(bufnr, "modified") then
@@ -188,14 +197,13 @@ local linters = {
 }
 
 local formatters = {
-    prettier = {command = "prettier", args = {"--write", "%filepath"}},
-    prettierEslint = {command = "prettier-eslint", args = {"--write", "%filepath"}},
+    prettier = {command = "prettier", args = {"--stdin-filepath", "%filepath"}},
+    prettierEslint = {command = "prettier-eslint", args = {"%filepath"}},
 }
 
 local formatFiletypes = {
     javascript = "prettierEslint",
-    typescript = "prettierEslint",
-    json = "prettierEslint"
+    typescript = "prettierEslint"
 }
 
 nvim_lsp.diagnosticls.setup {
