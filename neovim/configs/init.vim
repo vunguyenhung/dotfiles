@@ -100,6 +100,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'ray-x/lsp_signature.nvim'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 " pretty list of diagnostics
 Plug 'folke/trouble.nvim'
 
@@ -118,6 +121,9 @@ Plug 'mhinz/vim-startify'
 
 " Improved register
 Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+
+" Github in neovim
+Plug 'https://github.com/pwntester/octo.nvim'
 
 call plug#end()
 
