@@ -24,7 +24,6 @@ Plug 'https://github.com/easymotion/vim-easymotion'
 
 " vim-incsearch - VIM incsearch improved
 Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 
 " vim-polyglot - syntax highlight

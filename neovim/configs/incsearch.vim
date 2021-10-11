@@ -19,9 +19,8 @@ function! s:config_easyfuzzymotion(...) abort
   \ }), get(a:, 1, {}))
 endfunction
 
-map /  <Plug>(incsearch-forward)
+map /  <Plug>(incsearch-stay)
 map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
 noremap <silent><expr> <leader>/ incsearch#go(<SID>config_easyfuzzymotion())
 " search forward, auto input the first register
-map //  <Plug>(incsearch-forward)<C-r>"
+map //  <Plug>(incsearch-stay)<C-r>"
