@@ -19,3 +19,9 @@ lualine.setup(config)
 -- gitsigns
 require('gitsigns').setup()
 
+
+-- 
+require('nvim-tree').setup {
+  auto_close = true,
+  open_on_tab = true
+}

@@ -56,8 +56,8 @@ Plug 'https://github.com/tpope/vim-fugitive.git'
 " rhubarb.vim: GitHub extension for fugitive.vim
 Plug 'https://github.com/tpope/vim-rhubarb'
 
-" nerdtree - file system explore
-Plug 'scrooloose/nerdtree'
+" File explorer
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Vim sugar for the UNIX shell commands
 Plug 'https://github.com/tpope/vim-eunuch'
@@ -148,8 +148,8 @@ source $VIMCONFIG_DIR/incsearch.vim
 " indentLine plugin settings
 source $VIMCONFIG_DIR/indentLine.vim
 
-" nerdtree plugin settings
-source $VIMCONFIG_DIR/nerdtree.vim
+" nvim-tree plugin settings
+source $VIMCONFIG_DIR/nvim-tree.vim
 
 " fzf.vim settings
 source $VIMCONFIG_DIR/fzf.vim
@@ -184,6 +184,7 @@ command! Vireload :source $VIMCONFIG
 
 " Editor setup
 " Backspace deletes like most programs in insert mode
+set cursorline
 set backspace=2
 set nobackup
 set nowritebackup

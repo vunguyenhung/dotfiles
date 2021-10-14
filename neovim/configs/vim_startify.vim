@@ -5,6 +5,5 @@ let g:startify_change_to_dir = 0
 autocmd VimEnter *
                 \   if !argc()
                 \ |   Startify
-                \ |   NERDTree
                 \ |   wincmd w
                 \ | endif
