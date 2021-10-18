@@ -1,10 +1,11 @@
 # Ignore cases
 --smart-case
 
-# Ignore git
+# Ignore
 --glob=!.git/*
 --glob=!package-lock.json
 --glob=!target
+--glob=!node_modules
 
 # Sort by accessed date
 --sortr=accessed
