@@ -57,7 +57,8 @@ Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/tpope/vim-rhubarb'
 
 " File explorer
-Plug 'kyazdani42/nvim-tree.lua'
+" Plug 'kyazdani42/nvim-tree.lua'
+Plug 'preservim/nerdtree'
 
 " Vim sugar for the UNIX shell commands
 Plug 'https://github.com/tpope/vim-eunuch'
@@ -149,7 +150,8 @@ source $VIMCONFIG_DIR/incsearch.vim
 source $VIMCONFIG_DIR/indentLine.vim
 
 " nvim-tree plugin settings
-source $VIMCONFIG_DIR/nvim-tree.vim
+source $VIMCONFIG_DIR/nerdtree.vim
+" source $VIMCONFIG_DIR/nvim-tree.vim
 
 " fzf.vim settings
 source $VIMCONFIG_DIR/fzf.vim
