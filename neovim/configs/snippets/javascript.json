@@ -13,6 +13,16 @@
     "body": "(${1}) => {\n\t${2}\n}",
     "description": "lambda"
   },
+  "function": {
+    "prefix": "fn",
+    "body": "function ${1}(${2}) {\n\t${3}\n}",
+    "description": "lambda"
+  },
+  "async function": {
+    "prefix": "afn",
+    "body": "async function ${1}(${2}) {\n\t${3}\n}",
+    "description": "lambda"
+  },
   "import lodash fp": {
     "prefix": "imLfp",
     "body": "import * as Lfp from 'lodash/fp'"
@@ -20,5 +30,13 @@
   "import bluebird": {
     "prefix": "imBB",
     "body": "import * as BPromise from 'bluebird'"
+  },
+  "test": {
+    "prefix": "tst",
+    "body": "test('${1}', () => {\n\t${2}\n})"
+  },
+  "async test": {
+    "prefix": "atst",
+    "body": "test('${1}', async () => {\n\t${2}\n})"
   }
 }

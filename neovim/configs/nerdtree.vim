@@ -6,11 +6,13 @@ let g:NERDTreeShowLineNumbers=1
 let g:NERDTreeMapOpenVSplit='<C-v>'
 let g:NERDTreeMapOpenSplit='<C-x>'
 let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir]]', '\.sass-cache$']
+let g:NERDTreeGitStatusShowIgnored = 1
 " Automaticaly close nvim if NERDTree is only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " vim-devicons
 set encoding=UTF-8
+let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_airline_tabline = 1

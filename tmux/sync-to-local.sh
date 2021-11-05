@@ -1,2 +1,2 @@
 cp ./tmux.conf ~/.tmux.conf
-cp ./tmux.paper-color-theme ~/.tmux.paper-color-theme
+cp ./tmux.tokyonight-night-theme ~/.tmux.tokyonight-night-theme

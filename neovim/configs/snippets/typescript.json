@@ -25,5 +25,13 @@
   "import bluebird": {
     "prefix": "imBB",
     "body": "import * as BPromise from 'bluebird'"
+  },
+  "test": {
+    "prefix": "tst",
+    "body": "test('${1}', () => {\n\t${2}\n})"
+  },
+  "async test": {
+    "prefix": "atst",
+    "body": "test('${1}', async () => {\n\t${2}\n})"
   }
 }

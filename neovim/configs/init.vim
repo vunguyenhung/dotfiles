@@ -59,6 +59,7 @@ Plug 'https://github.com/tpope/vim-rhubarb'
 " File explorer
 " Plug 'kyazdani42/nvim-tree.lua'
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Vim sugar for the UNIX shell commands
 Plug 'https://github.com/tpope/vim-eunuch'
@@ -199,6 +200,7 @@ set autoread | au CursorHold * checktime
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set autowriteall     " Automatically :write before running commands
 set number
 
 " Use space, soft tab

@@ -139,20 +139,6 @@ local saga = require 'lspsaga'
 saga.init_lsp_saga()
 require("trouble").setup{}
 
--- Enable Async format
-local format_async = function(err, _, result, _, bufnr)
-    if err ~= nil or result == nil then return end
-    if not vim.api.nvim_buf_get_option(bufnr, "modified") then
-        local view = vim.fn.winsaveview()
-        vim.lsp.util.apply_text_edits(result, bufnr)
-        vim.fn.winrestview(view)
-        if bufnr == vim.api.nvim_get_current_buf() then
-            vim.api.nvim_command("noautocmd :update")
-        end
-    end
-end
-vim.lsp.handlers["textDocument/formatting"] = format_async
-
 -- Register Language Servers
 -- Enable rust_analyzer
 local capabilities = vim.lsp.protocol.make_client_capabilities()
