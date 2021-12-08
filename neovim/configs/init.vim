@@ -94,15 +94,19 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
+
 Plug 'glepnir/lspsaga.nvim'
+Plug 'RishabhRD/popfix'
+Plug 'RishabhRD/nvim-lsputils'
+Plug 'kosayoda/nvim-lightbulb'
+
 Plug 'hoob3rt/lualine.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'onsails/lspkind-nvim'
-Plug 'ray-x/lsp_signature.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
 
 " pretty list of diagnostics
 Plug 'folke/trouble.nvim'
@@ -196,7 +200,12 @@ set history=50
 " display incomplete commands
 set showcmd
 " refesh on external changes
-set autoread | au CursorHold * checktime
+" trigger `autoread` when files changes on disk
+  set autoread
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+" notification after file change
+  autocmd FileChangedShellPost *
+    \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
@@ -208,6 +217,21 @@ set tabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
+" Spaces & Tabs {{{
+" set tabstop=4       " number of visual spaces per TAB
+" set softtabstop=4   " number of spaces in tab when editing
+" set shiftwidth=4    " number of spaces to use for autoindent
+" set expandtab       " tabs are space
+" set autoindent
+" set copyindent      " copy indent from the previous line
+" }}} Spaces & Tabs
+
+" Folding {{{
+set foldenable
+set foldlevelstart=10  " default folding level when buffer is opened
+set foldnestmax=10     " maximum nested fold
+set foldmethod=syntax  " fold based on indentation
+" }}} Folding
 
 " Copy to clipboard
 vnoremap  Y  "+y

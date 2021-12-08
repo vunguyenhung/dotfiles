@@ -13,7 +13,6 @@ local on_attach = function(client, bufnr)
   vim.cmd('command! LspDefinition lua vim.lsp.buf.definition()')
   vim.cmd('command! LspHover lua vim.lsp.buf.hover()')
   vim.cmd('command! LspImplementation lua vim.lsp.buf.implementation()')
-  vim.cmd('command! LspSignatureHelp lua vim.lsp.buf.signature_help()')
   vim.cmd('command! LspTypeDefinition lua vim.lsp.buf.type_definition()')
   vim.cmd('command! LspRename lua vim.lsp.buf.rename()')
   vim.cmd('command! LspCodeAction lua vim.lsp.buf.code_action()')
@@ -23,19 +22,23 @@ local on_attach = function(client, bufnr)
   vim.cmd('command! LspDiagNext lua vim.lsp.diagnostic.goto_next()')
   vim.cmd('command! LspSetLocList lua vim.lsp.diagnostic.set_loclist()')
   vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
-  vim.cmd("command! LspsagaSmartScrollUp lua require('lspsaga.action').smart_scroll_with_saga(-1)")
-  vim.cmd("command! LspsagaSmartScrollDown lua require('lspsaga.action').smart_scroll_with_saga(1)")
+
+  -- vim.cmd("command! LspsagaSmartScrollUp lua require('lspsaga.action').smart_scroll_with_saga(-1)")
+  -- vim.cmd("command! LspsagaSmartScrollDown lua require('lspsaga.action').smart_scroll_with_saga(1)")
   vim.cmd("command! LspsagaShowLineDiag lua require'lspsaga.diagnostic'.show_line_diagnostics()")
   vim.cmd("command! LspsagaDiagNext lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()")
   vim.cmd("command! LspsagaDiagPrev lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()")
 
   buf_set_keymap('n', 'gd', ':LspDefinition<CR>', opts)
-  buf_set_keymap('n', 'K', ':Lspsaga hover_doc<CR>', opts)
-  buf_set_keymap('n', '<C-v>', ':LspsagaSmartScrollUp<CR>', opts)
-  buf_set_keymap('n', '<C-b>', ':LspsagaSmartScrollDown<CR>', opts)
+  buf_set_keymap('n', 'K', ':LspHover<CR>', opts)
+  -- buf_set_keymap('n', 'I', ':LspTypeDefinition<CR>', opts)
+  -- buf_set_keymap('n', 'I', ':Lspsaga signature_help<CR>', opts)
+  -- buf_set_keymap('n', '<C-v>', ':LspsagaSmartScrollUp<CR>', opts)
+  -- buf_set_keymap('n', '<C-b>', ':LspsagaSmartScrollDown<CR>', opts)
   buf_set_keymap('n', 'gi', ':LspImplementation<CR>', opts)
+  buf_set_keymap('n', 'ff', ':LspFormatting<CR>', opts)
   buf_set_keymap('n', '<space>r', ':Lspsaga rename<CR>', opts)
-  buf_set_keymap('n', '<space>a', ':Lspsaga code_action<CR>', opts)
+  buf_set_keymap('n', '<space>a', ':LspCodeAction<CR>', opts)
   buf_set_keymap('n', 'gr', ':LspReferences<CR>', opts)
   buf_set_keymap('n', '<space>e', ':LspsagaShowLineDiag<CR>', opts)
   buf_set_keymap('n', '[g', ':LspsagaDiagPrev<CR>', opts)
@@ -58,14 +61,6 @@ local on_attach = function(client, bufnr)
         ]], true)
   end
 end
-
--- Add lsp signature help
-require "lsp_signature".setup({
-  bind = true,
-  hint_enable = false,
-  max_height = 3,
-  auto_close_after = 2
-})
 
 -- Completion
 local check_back_space = function()
@@ -130,13 +125,22 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = true,
     signs = true,
-    update_in_insert = true,
+    update_in_insert = false,
   }
 )
 
 -- Improved lsp
-local saga = require 'lspsaga'
-saga.init_lsp_saga()
+-- local saga = require 'lspsaga'
+-- saga.init_lsp_saga()
+vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
+vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
+vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
+vim.lsp.handlers['textDocument/declaration'] = require'lsputil.locations'.declaration_handler
+vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typeDefinition_handler
+vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
+vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
+vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 require("trouble").setup{}
 
 -- Register Language Servers
@@ -153,6 +157,7 @@ nvim_lsp.rust_analyzer.setup({
 nvim_lsp.tsserver.setup {
     on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
         on_attach(client)
     end
 }
@@ -211,3 +216,13 @@ nvim_lsp.jsonls.setup {}
 -- npm i -g yarn
 -- yarn global add yaml-language-server
 nvim_lsp.yamlls.setup{}
+
+
+-- Enable python lsp
+-- pip install python-lsp-server
+-- nvim_lsp.pylsp.setup{}
+
+-- npm i -g pyright
+nvim_lsp.pyright.setup{
+  on_attach = on_attach
+}
