@@ -19,12 +19,11 @@ Plug 'https://github.com/jiangmiao/auto-pairs'
 " Haskell support for vim
 Plug 'https://github.com/neovimhaskell/haskell-vim'
 
-" vim-easymotion - Easy navigation in VIM
-Plug 'https://github.com/easymotion/vim-easymotion'
+" hop.nvim - Easy navigation in VIM
+Plug 'phaazon/hop.nvim'
 
 " vim-incsearch - VIM incsearch improved
 Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-easymotion.vim'
 
 " vim-polyglot - syntax highlight
 Plug 'sheerun/vim-polyglot'
@@ -161,8 +160,8 @@ source $VIMCONFIG_DIR/nerdtree.vim
 " fzf.vim settings
 source $VIMCONFIG_DIR/fzf.vim
 
-" vim-easymotion settings
-source $VIMCONFIG_DIR/vim_easymotion.vim
+" hop.nvim settings
+source $VIMCONFIG_DIR/hop.vim
 
 " vim-abolish settings
 source $VIMCONFIG_DIR/vim_abolish.vim

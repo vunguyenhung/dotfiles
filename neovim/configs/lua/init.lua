@@ -24,3 +24,6 @@ require('gitsigns').setup()
 --   auto_close = true,
 --   open_on_tab = true
 -- }
+
+-- hop
+require'hop'.setup()
