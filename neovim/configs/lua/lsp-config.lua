@@ -31,7 +31,7 @@ local on_attach = function(client, bufnr)
 
   buf_set_keymap('n', 'gd', ':LspDefinition<CR>', opts)
   buf_set_keymap('n', 'K', ':LspHover<CR>', opts)
-  -- buf_set_keymap('n', 'I', ':LspTypeDefinition<CR>', opts)
+  buf_set_keymap('n', 'I', ':LspTypeDefinition<CR>', opts)
   -- buf_set_keymap('n', 'I', ':Lspsaga signature_help<CR>', opts)
   -- buf_set_keymap('n', '<C-v>', ':LspsagaSmartScrollUp<CR>', opts)
   -- buf_set_keymap('n', '<C-b>', ':LspsagaSmartScrollDown<CR>', opts)
@@ -123,9 +123,7 @@ cmp.setup({
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
-    signs = true,
-    update_in_insert = false,
+    severity_sort = true,
   }
 )
 
@@ -153,7 +151,13 @@ nvim_lsp.rust_analyzer.setup({
 })
 
 -- Enable tsserver
--- npm install -g typescript typescript-language-server diagnostic-languageserver eslint_d prettier prettier-eslint prettier-eslint-cli
+-- npm install -g typescript \
+--   typescript-language-server \
+--   diagnostic-languageserver \
+--   eslint_d eslint prettier eslint-config-prettier prettier-eslint prettier-eslint-cli \
+--   eslint-plugin-prettier \
+--   @typescript-eslint/eslint-plugin \
+--   @typescript-eslint/parser \
 nvim_lsp.tsserver.setup {
     on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
@@ -217,12 +221,26 @@ nvim_lsp.jsonls.setup {}
 -- yarn global add yaml-language-server
 nvim_lsp.yamlls.setup{}
 
-
 -- Enable python lsp
--- pip install python-lsp-server
--- nvim_lsp.pylsp.setup{}
-
 -- npm i -g pyright
 nvim_lsp.pyright.setup{
   on_attach = on_attach
 }
+
+
+-- golsp
+-- brew install go
+-- brew install gopls
+nvim_lsp.gopls.setup{
+  on_attach = on_attach,
+  cmd = {"gopls", "serve"},
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
+
