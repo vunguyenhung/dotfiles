@@ -128,8 +128,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 -- Improved lsp
--- local saga = require 'lspsaga'
--- saga.init_lsp_saga()
 vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
 vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
 vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
@@ -141,9 +139,9 @@ vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handle
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 require("trouble").setup{}
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- Register Language Servers
 -- Enable rust_analyzer
-local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 nvim_lsp.rust_analyzer.setup({
     on_attach=on_attach,
@@ -154,10 +152,7 @@ nvim_lsp.rust_analyzer.setup({
 -- npm install -g typescript \
 --   typescript-language-server \
 --   diagnostic-languageserver \
---   eslint_d eslint prettier eslint-config-prettier prettier-eslint prettier-eslint-cli \
---   eslint-plugin-prettier \
---   @typescript-eslint/eslint-plugin \
---   @typescript-eslint/parser \
+--   eslint_d eslint
 nvim_lsp.tsserver.setup {
     on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
@@ -198,7 +193,8 @@ local formatters = {
 
 local formatFiletypes = {
     javascript = "prettierEslint",
-    typescript = "prettierEslint"
+    typescript = "prettierEslint",
+    typescriptreact = "prettier"
 }
 
 nvim_lsp.diagnosticls.setup {
@@ -227,7 +223,6 @@ nvim_lsp.pyright.setup{
   on_attach = on_attach
 }
 
-
 -- golsp
 -- brew install go
 -- brew install gopls
@@ -244,3 +239,21 @@ nvim_lsp.gopls.setup{
   },
 }
 
+
+-- emmet ls
+-- npm i -g ls_emmet
+local configs = require'lspconfig.configs'
+if not configs.ls_emmet then
+  configs.ls_emmet = {
+    default_config = {
+      cmd = {'ls_emmet', '--stdio'};
+      filetypes = { 'html', 'css', 'scss', 'sass', 'javascript', 'javascriptreact', 'typescriptreact', 'markdown' };
+      root_dir = function()
+        return vim.loop.cwd()
+      end;
+      settings = {};
+    };
+  }
+end
+
+nvim_lsp.ls_emmet.setup{ capabilities = capabilities }

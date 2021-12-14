@@ -30,6 +30,7 @@ Plug 'sheerun/vim-polyglot'
 
 " Typescript syntax highlight
 Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 " vim-markdown - syntax for markdown
 Plug 'https://github.com/plasticboy/vim-markdown'
@@ -81,6 +82,9 @@ Plug 'https://github.com/tpope/vim-surround'
 
 " repeat, use `.` command to repeat plugin command
 Plug 'https://github.com/tpope/vim-repeat'
+
+" improved %
+Plug 'andymass/vim-matchup'
 
 "" Nvim LSP & code completion
 Plug 'neovim/nvim-lspconfig'
@@ -155,7 +159,6 @@ source $VIMCONFIG_DIR/indentLine.vim
 
 " nvim-tree plugin settings
 source $VIMCONFIG_DIR/nerdtree.vim
-" source $VIMCONFIG_DIR/nvim-tree.vim
 
 " fzf.vim settings
 source $VIMCONFIG_DIR/fzf.vim
@@ -171,6 +174,9 @@ source $VIMCONFIG_DIR/vim_markdown.vim
 
 " vim-fugitive settings
 source $VIMCONFIG_DIR/vim_fugitive.vim
+
+" vim-matchup settings
+source $VIMCONFIG_DIR/vim-matchup.vim
 
 " Tab shortcuts
 nnoremap <C-t>n :tabnew<Cr>
