@@ -36,33 +36,52 @@ local on_attach = function(client, bufnr)
   -- buf_set_keymap('n', '<C-v>', ':LspsagaSmartScrollUp<CR>', opts)
   -- buf_set_keymap('n', '<C-b>', ':LspsagaSmartScrollDown<CR>', opts)
   buf_set_keymap('n', 'gi', ':LspImplementation<CR>', opts)
-  buf_set_keymap('n', 'ff', ':LspFormatting<CR>', opts)
+  buf_set_keymap('n', 'ff', ':w | :LspFormatting<CR>', opts)
   buf_set_keymap('n', '<space>r', ':Lspsaga rename<CR>', opts)
   buf_set_keymap('n', '<space>a', ':LspCodeAction<CR>', opts)
   buf_set_keymap('n', 'gr', ':LspReferences<CR>', opts)
   buf_set_keymap('n', '<space>e', ':LspsagaShowLineDiag<CR>', opts)
   buf_set_keymap('n', '[g', ':LspsagaDiagPrev<CR>', opts)
   buf_set_keymap('n', ']g', ':LspsagaDiagNext<CR>', opts)
-  buf_set_keymap('n', '<space>q', ':TroubleToggle lsp_document_diagnostics<CR>', opts)
-  buf_set_keymap('n', '<space>Q', ':TroubleToggle lsp_workspace_diagnostics<CR>', opts)
+  buf_set_keymap('n', '<space>q', ':TroubleToggle document_diagnostics<CR>', opts)
+  buf_set_keymap('n', '<space>Q', ':TroubleToggle workspace_diagnostics<CR>', opts)
   buf_set_keymap('n', '<space>n', ':AerialToggle!<CR>', opts)
-
 
   -- Add navigation
   require("aerial").on_attach(client)
 
   -- auto formatting
-  if client.resolved_capabilities.document_formatting then
-      vim.api.nvim_exec([[
-        augroup LspAutocommands
-            autocmd! * <buffer>
-            autocmd BufWritePost <buffer> LspFormatting
-        augroup END
-        ]], true)
-  end
+  -- if client.resolved_capabilities.document_formatting then
+  --     vim.api.nvim_exec([[
+  --       augroup LspAutocommands
+  --           autocmd! * <buffer>
+  --           autocmd BufWritePost <buffer> LspFormatting
+  --       augroup END
+  --       ]], true)
+  -- end
 end
 
--- Completion
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {"typescript"},
+  sync_install = false,
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+  indent = {
+    enable = true
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<C-v>",
+      node_incremental = "v",
+      node_decremental = "b",
+    },
+  }
+}
+
+-- Code Completion
 local check_back_space = function()
   local col = vim.fn.col('.') - 1
   return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
@@ -121,13 +140,13 @@ cmp.setup({
   },
 })
 
+-- Improved lsp
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     severity_sort = true,
   }
 )
-
--- Improved lsp
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = 'single'})
 vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
 vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
 vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
@@ -137,12 +156,17 @@ vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.imp
 vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
 vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
-require("trouble").setup{}
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+require("trouble").setup{}
+require("todo-comments").setup{
+  keywords = {
+    DEBUG = { icon = " ", color = "warning" },
+  },
+}
+
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Register Language Servers
 -- Enable rust_analyzer
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 nvim_lsp.rust_analyzer.setup({
     on_attach=on_attach,
     capabilities=capabilities,
@@ -164,6 +188,8 @@ nvim_lsp.tsserver.setup {
 local filetypes = {
     javascript = "eslint",
     typescript = "eslint",
+    javascriptreact = "eslint",
+    typescriptreact = "eslint",
 }
 
 local linters = {
@@ -194,7 +220,8 @@ local formatters = {
 local formatFiletypes = {
     javascript = "prettierEslint",
     typescript = "prettierEslint",
-    typescriptreact = "prettier"
+    javascriptreact = "prettier",
+    typescriptreact = "prettier",
 }
 
 nvim_lsp.diagnosticls.setup {
@@ -216,6 +243,12 @@ nvim_lsp.jsonls.setup {}
 -- npm i -g yarn
 -- yarn global add yaml-language-server
 nvim_lsp.yamlls.setup{}
+
+-- Enable css language server
+-- npm i -g vscode-langservers-extracted
+nvim_lsp.cssls.setup {
+  capabilities = capabilities,
+}
 
 -- Enable python lsp
 -- npm i -g pyright
@@ -247,7 +280,7 @@ if not configs.ls_emmet then
   configs.ls_emmet = {
     default_config = {
       cmd = {'ls_emmet', '--stdio'};
-      filetypes = { 'html', 'css', 'scss', 'sass', 'javascript', 'javascriptreact', 'typescriptreact', 'markdown' };
+      filetypes = { 'html', 'css', 'scss', 'sass', 'javascriptreact', 'typescriptreact'};
       root_dir = function()
         return vim.loop.cwd()
       end;

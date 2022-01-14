@@ -62,14 +62,11 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Vim sugar for the UNIX shell commands
-Plug 'https://github.com/tpope/vim-eunuch'
+" Plug 'https://github.com/tpope/vim-eunuch'
 
 " fzf - fuzzy file search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-" projectionist - finding files semantically
-Plug 'https://github.com/tpope/vim-projectionist'
 
 " indentLine - display thin vertical lines
 Plug 'https://github.com/Yggdroot/indentLine'
@@ -97,6 +94,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'glepnir/lspsaga.nvim'
 Plug 'RishabhRD/popfix'
@@ -113,6 +111,9 @@ Plug 'nvim-lua/plenary.nvim'
 
 " pretty list of diagnostics
 Plug 'folke/trouble.nvim'
+
+" highlight todo comments
+Plug 'folke/todo-comments.nvim'
 
 " View and search LSP symbol
 Plug 'stevearc/aerial.nvim'
@@ -178,8 +179,11 @@ source $VIMCONFIG_DIR/vim_fugitive.vim
 " vim-matchup settings
 source $VIMCONFIG_DIR/vim-matchup.vim
 
+" tree-sitter settings
+source $VIMCONFIG_DIR/treesitter.vim
+
 " Tab shortcuts
-nnoremap <C-t>n :tabnew<Cr>
+nnoremap <C-t>n :tabnew %<CR>
 nnoremap <C-t>l :tabnext<CR>
 nnoremap <C-t>h :tabprev<CR>
 nnoremap <C-t>c :tabclose<CR>
@@ -204,39 +208,27 @@ set noswapfile
 set history=50
 " display incomplete commands
 set showcmd
+
 " refesh on external changes
 " trigger `autoread` when files changes on disk
-  set autoread
-  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+set autoread
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 " notification after file change
-  autocmd FileChangedShellPost *
-    \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
-set autowrite     " Automatically :write before running commands
-set autowriteall     " Automatically :write before running commands
+" set autowrite     " Automatically :write before running commands
+" set autowriteall     " Automatically :write before running commands
 set number
+" set hidden
 
 " Use space, soft tab
 set tabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
-" Spaces & Tabs {{{
-" set tabstop=4       " number of visual spaces per TAB
-" set softtabstop=4   " number of spaces in tab when editing
-" set shiftwidth=4    " number of spaces to use for autoindent
-" set expandtab       " tabs are space
-" set autoindent
-" set copyindent      " copy indent from the previous line
-" }}} Spaces & Tabs
-
-" Folding {{{
-set foldenable
-set foldlevelstart=10  " default folding level when buffer is opened
-set foldnestmax=10     " maximum nested fold
-set foldmethod=syntax  " fold based on indentation
-" }}} Folding
 
 " Copy to clipboard
 vnoremap  Y  "+y

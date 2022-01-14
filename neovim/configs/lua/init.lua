@@ -6,7 +6,7 @@ local config = {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', {"diagnostics", sources = {"nvim_lsp"}}},
+    lualine_b = {{"diagnostics", sources = {"nvim_lsp"}}},
     lualine_c = {'filename'},
     lualine_x = {'filetype'},
     lualine_y = {'progress'},
@@ -18,12 +18,6 @@ lualine.setup(config)
 
 -- gitsigns
 require('gitsigns').setup()
-
--- nvim-tree
--- require('nvim-tree').setup {
---   auto_close = true,
---   open_on_tab = true
--- }
 
 -- hop
 require'hop'.setup()
