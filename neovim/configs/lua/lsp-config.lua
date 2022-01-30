@@ -14,53 +14,36 @@ local on_attach = function(client, bufnr)
   vim.cmd('command! LspHover lua vim.lsp.buf.hover()')
   vim.cmd('command! LspImplementation lua vim.lsp.buf.implementation()')
   vim.cmd('command! LspTypeDefinition lua vim.lsp.buf.type_definition()')
+  vim.cmd('command! LspSignatureHelp lua vim.lsp.buf.signature_help()')
   vim.cmd('command! LspRename lua vim.lsp.buf.rename()')
   vim.cmd('command! LspCodeAction lua vim.lsp.buf.code_action()')
   vim.cmd('command! LspReferences lua vim.lsp.buf.references()')
-  vim.cmd('command! LspShowLineDiag lua vim.lsp.diagnostic.show_line_diagnostics()')
-  vim.cmd('command! LspDiagPrev lua vim.lsp.diagnostic.goto_prev()')
-  vim.cmd('command! LspDiagNext lua vim.lsp.diagnostic.goto_next()')
-  vim.cmd('command! LspSetLocList lua vim.lsp.diagnostic.set_loclist()')
+  vim.cmd('command! LspShowLineDiag lua vim.diagnostic.open_float()')
+  vim.cmd('command! LspDiagPrev lua vim.diagnostic.goto_prev()')
+  vim.cmd('command! LspDiagNext lua vim.diagnostic.goto_next()')
+  vim.cmd('command! LspSetLocList lua vim.diagnostic.setloclist()')
   vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
-
-  -- vim.cmd("command! LspsagaSmartScrollUp lua require('lspsaga.action').smart_scroll_with_saga(-1)")
-  -- vim.cmd("command! LspsagaSmartScrollDown lua require('lspsaga.action').smart_scroll_with_saga(1)")
-  vim.cmd("command! LspsagaShowLineDiag lua require'lspsaga.diagnostic'.show_line_diagnostics()")
-  vim.cmd("command! LspsagaDiagNext lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()")
-  vim.cmd("command! LspsagaDiagPrev lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()")
 
   buf_set_keymap('n', 'gd', ':LspDefinition<CR>', opts)
   buf_set_keymap('n', 'K', ':LspHover<CR>', opts)
-  buf_set_keymap('n', 'I', ':LspTypeDefinition<CR>', opts)
-  -- buf_set_keymap('n', 'I', ':Lspsaga signature_help<CR>', opts)
-  -- buf_set_keymap('n', '<C-v>', ':LspsagaSmartScrollUp<CR>', opts)
-  -- buf_set_keymap('n', '<C-b>', ':LspsagaSmartScrollDown<CR>', opts)
+  buf_set_keymap('n', 'I', ':LspSignatureHelp<CR>', opts)
   buf_set_keymap('n', 'gi', ':LspImplementation<CR>', opts)
   buf_set_keymap('n', 'ff', ':w | :LspFormatting<CR>', opts)
-  buf_set_keymap('n', '<space>r', ':Lspsaga rename<CR>', opts)
+  buf_set_keymap('n', '<space>r', ':LspRename<CR>', opts)
   buf_set_keymap('n', '<space>a', ':LspCodeAction<CR>', opts)
   buf_set_keymap('n', 'gr', ':LspReferences<CR>', opts)
-  buf_set_keymap('n', '<space>e', ':LspsagaShowLineDiag<CR>', opts)
-  buf_set_keymap('n', '[g', ':LspsagaDiagPrev<CR>', opts)
-  buf_set_keymap('n', ']g', ':LspsagaDiagNext<CR>', opts)
+  buf_set_keymap('n', '<space>e', ':LspShowLineDiag<CR>', opts)
+  buf_set_keymap('n', '[g', ':LspDiagPrev<CR>', opts)
+  buf_set_keymap('n', ']g', ':LspDiagNext<CR>', opts)
   buf_set_keymap('n', '<space>q', ':TroubleToggle document_diagnostics<CR>', opts)
   buf_set_keymap('n', '<space>Q', ':TroubleToggle workspace_diagnostics<CR>', opts)
   buf_set_keymap('n', '<space>n', ':AerialToggle!<CR>', opts)
 
   -- Add navigation
   require("aerial").on_attach(client)
-
-  -- auto formatting
-  -- if client.resolved_capabilities.document_formatting then
-  --     vim.api.nvim_exec([[
-  --       augroup LspAutocommands
-  --           autocmd! * <buffer>
-  --           autocmd BufWritePost <buffer> LspFormatting
-  --       augroup END
-  --       ]], true)
-  -- end
 end
 
+-- Syntax
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {"typescript"},
   sync_install = false,
@@ -141,21 +124,20 @@ cmp.setup({
 })
 
 -- Improved lsp
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    severity_sort = true,
-  }
-)
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = 'single'})
-vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
-vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
-vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
-vim.lsp.handlers['textDocument/declaration'] = require'lsputil.locations'.declaration_handler
-vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typeDefinition_handler
-vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
-vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
-vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+})
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'})
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = 'rounded'})
 
 require("trouble").setup{}
 require("todo-comments").setup{
@@ -163,6 +145,7 @@ require("todo-comments").setup{
     DEBUG = { icon = " ", color = "warning" },
   },
 }
+
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Register Language Servers
@@ -237,7 +220,7 @@ nvim_lsp.diagnosticls.setup {
 
 -- Enable json language server
 -- npm i -g vscode-langservers-extracted
-nvim_lsp.jsonls.setup {}
+-- nvim_lsp.jsonls.setup {}
 
 -- Enable yaml language server
 -- npm i -g yarn

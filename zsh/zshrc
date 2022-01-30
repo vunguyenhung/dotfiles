@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
@@ -58,6 +63,10 @@ export VIMCONFIG="$HOME/.config/nvim/init.vim"
 export VIMCONFIG_DIR="$HOME/.config/nvim"
 alias viconfig="cd $VIMCONFIG_DIR && vi init.vim"
 
+# Alacritty
+export TERM_CONFIG_DIR="$HOME/.config/alacritty"
+alias termconfig="cd $TERM_CONFIG_DIR && vi $TERM_CONFIG_DIR/alacritty.yml"
+
 # Utils
 # Clear screen but keep buffer
 alias cl="clear"
@@ -76,3 +85,8 @@ function killport() {
 # ShopBack
 [ -f $HOME/.shopback.zsh ] && source $HOME/.shopback.zsh
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####

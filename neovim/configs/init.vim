@@ -4,6 +4,11 @@ let mapleader = "\<Space>"
 " vim-plug package manager
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Navigation
+Plug 'beauwilliams/focus.nvim'
+Plug 'https://github.com/numToStr/Navigator.nvim'
+Plug 'sunaku/tmux-navigate'
+
 " rust.vim: Rust support for vim
 Plug 'https://github.com/rust-lang/rust.vim'
 
@@ -35,11 +40,9 @@ Plug 'peitalin/vim-jsx-typescript'
 " vim-markdown - syntax for markdown
 Plug 'https://github.com/plasticboy/vim-markdown'
 
-" vim-tmux-navigator - Navigate between vim & tmux seemlessly
-Plug 'https://github.com/christoomey/vim-tmux-navigator'
-
-" vim-tmux-resizer - Resize vim & tmux panes seemlessly
-Plug 'https://github.com/melonmanchan/vim-tmux-resizer'
+" nvim tmux integration
+Plug 'https://github.com/aserowy/tmux.nvim'
+" Plug 'https://github.com/christoomey/vim-tmux-navigator'
 
 " vim-commentary - comment stuff out
 Plug 'https://github.com/tpope/vim-commentary'
@@ -57,12 +60,8 @@ Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/tpope/vim-rhubarb'
 
 " File explorer
-" Plug 'kyazdani42/nvim-tree.lua'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" Vim sugar for the UNIX shell commands
-" Plug 'https://github.com/tpope/vim-eunuch'
 
 " fzf - fuzzy file search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -100,14 +99,17 @@ Plug 'glepnir/lspsaga.nvim'
 Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
 Plug 'kosayoda/nvim-lightbulb'
+" Plug 'ray-x/lsp_signature.nvim'
 
 Plug 'hoob3rt/lualine.nvim'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'onsails/lspkind-nvim'
 
 Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
+
+" theme
+Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " pretty list of diagnostics
 Plug 'folke/trouble.nvim'
@@ -146,6 +148,9 @@ lua require("init")
 lua require("lsp-config")
 source $VIMCONFIG_DIR/lsp.vim
 
+" focus.nvim settings
+source $VIMCONFIG_DIR/focus.vim
+
 " vsnip settings
 source $VIMCONFIG_DIR/vsnip.vim
 
@@ -181,6 +186,8 @@ source $VIMCONFIG_DIR/vim-matchup.vim
 
 " tree-sitter settings
 source $VIMCONFIG_DIR/treesitter.vim
+
+" source $VIMCONFIG_DIR/colors.vim
 
 " Tab shortcuts
 nnoremap <C-t>n :tabnew %<CR>

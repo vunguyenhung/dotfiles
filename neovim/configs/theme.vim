@@ -1,3 +1,7 @@
-let g:tokyonight_style = "night"
-let g:lightline = {'colorscheme': 'tokyonight'}
-colorscheme tokyonight
+set termguicolors
+augroup dracula_customization
+  au!
+  autocmd ColorScheme dracula hi Normal guibg=#1c1c1c
+  autocmd ColorScheme dracula hi CursorLine guibg=#2e2d2d
+augroup END
+colorscheme dracula

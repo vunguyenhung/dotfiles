@@ -1,5 +1,6 @@
 let g:fzf_layout = { 'down': '40%' }
 
+let $BAT_THEME='Dracula'
 " Improved Ripgrep
 function! RipgrepFzf(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
