@@ -3,7 +3,7 @@
 - macOS Mojave or above
 
 ## Preview
-![Screenshot](screenshot.png)
+![Preview](preview.png)
 
 ## Install
 ### Change directory to each sub-directory and follow its README.md
