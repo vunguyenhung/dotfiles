@@ -5,7 +5,6 @@
 #### END FIG ENV VARIABLES ####
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
@@ -17,6 +16,23 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+## Zplug Starts
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+# Load dracula theme
+zplug 'dracula/zsh', as:theme
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
+## Zplug Ends
 
 #########################
 #### USER CONFIGURATION
