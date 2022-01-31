@@ -83,6 +83,10 @@ alias viconfig="cd $VIMCONFIG_DIR && vi init.vim"
 export TERM_CONFIG_DIR="$HOME/.config/alacritty"
 alias termconfig="cd $TERM_CONFIG_DIR && vi $TERM_CONFIG_DIR/alacritty.yml"
 
+# dotfiles
+export DOTFILES_DIR="$HOME/Code/Personal/dotfiles"
+alias dotfiles="cd $DOTFILES_DIR && vi"
+
 # Utils
 # Clear screen but keep buffer
 alias cl="clear"

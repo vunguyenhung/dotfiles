@@ -4,6 +4,10 @@ let mapleader = "\<Space>"
 " vim-plug package manager
 call plug#begin('~/.local/share/nvim/plugged')
 
+" emmet
+" https://github.com/mattn/emmet-vim
+Plug 'mattn/emmet-vim'
+
 " Navigation
 Plug 'beauwilliams/focus.nvim'
 Plug 'https://github.com/numToStr/Navigator.nvim'
@@ -95,15 +99,14 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-Plug 'glepnir/lspsaga.nvim'
 Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
 Plug 'kosayoda/nvim-lightbulb'
-" Plug 'ray-x/lsp_signature.nvim'
 
 Plug 'hoob3rt/lualine.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'onsails/lspkind-nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 
@@ -213,6 +216,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 set history=50
+set signcolumn=yes
 " display incomplete commands
 set showcmd
 

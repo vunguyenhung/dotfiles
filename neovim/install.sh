@@ -8,4 +8,4 @@ echo "Copying configs..."
 mkdir ~/.config/nvim && cp -r ./configs/* ~/.config/nvim/
 
 echo "Installing Vim Plugins..."
-nvim +PlugInstall
+nvim -S ./configs/plugins_snapshot.vim

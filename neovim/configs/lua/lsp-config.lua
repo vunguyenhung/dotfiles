@@ -17,6 +17,7 @@ local on_attach = function(client, bufnr)
   vim.cmd('command! LspSignatureHelp lua vim.lsp.buf.signature_help()')
   vim.cmd('command! LspRename lua vim.lsp.buf.rename()')
   vim.cmd('command! LspCodeAction lua vim.lsp.buf.code_action()')
+  vim.cmd('command! LspCodeActionTelescope lua require("telescope.builtin").lsp_code_actions()')
   vim.cmd('command! LspReferences lua vim.lsp.buf.references()')
   vim.cmd('command! LspShowLineDiag lua vim.diagnostic.open_float()')
   vim.cmd('command! LspDiagPrev lua vim.diagnostic.goto_prev()')
@@ -30,7 +31,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gi', ':LspImplementation<CR>', opts)
   buf_set_keymap('n', 'ff', ':w | :LspFormatting<CR>', opts)
   buf_set_keymap('n', '<space>r', ':LspRename<CR>', opts)
-  buf_set_keymap('n', '<space>a', ':LspCodeAction<CR>', opts)
+  buf_set_keymap('n', '<space>a', ':LspCodeActionTelescope<CR>', opts)
   buf_set_keymap('n', 'gr', ':LspReferences<CR>', opts)
   buf_set_keymap('n', '<space>e', ':LspShowLineDiag<CR>', opts)
   buf_set_keymap('n', '[g', ':LspDiagPrev<CR>', opts)
@@ -138,6 +139,22 @@ vim.diagnostic.config({
 })
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'})
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = 'rounded'})
+
+-- Show icon when code action available
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+
+require('telescope').setup{
+  defaults = {
+    mappings = {}
+  },
+  pickers = {
+    lsp_code_actions = {
+      theme = "cursor",
+    }
+  },
+  extensions = {
+  }
+}
 
 require("trouble").setup{}
 require("todo-comments").setup{
@@ -254,22 +271,3 @@ nvim_lsp.gopls.setup{
     },
   },
 }
-
-
--- emmet ls
--- npm i -g ls_emmet
-local configs = require'lspconfig.configs'
-if not configs.ls_emmet then
-  configs.ls_emmet = {
-    default_config = {
-      cmd = {'ls_emmet', '--stdio'};
-      filetypes = { 'html', 'css', 'scss', 'sass', 'javascriptreact', 'typescriptreact'};
-      root_dir = function()
-        return vim.loop.cwd()
-      end;
-      settings = {};
-    };
-  }
-end
-
-nvim_lsp.ls_emmet.setup{ capabilities = capabilities }
