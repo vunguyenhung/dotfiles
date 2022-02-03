@@ -1,2 +1,5 @@
-nvim "+PlugSnapshot! ./configs/plugins_snapshot.vim" "+qall" && \
-    cp -r $VIMCONFIG_DIR/* ./configs
+mv ./configs ./configs-bak
+mkdir ./configs && cp -r $VIMCONFIG_DIR/* ./configs && \
+    rm -r ./configs-bak
+
+nvim "+PlugSnapshot! ./configs/plugins_snapshot.vim" "+qall"

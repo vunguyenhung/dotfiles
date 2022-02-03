@@ -3,6 +3,6 @@ brew bundle dump
 if [ -f "Brewfile" ]; then
     rm -f Brewfile-bak
 else 
-    echo "System Packages sync failed"
+    echo "Sync System Packages failed!"
     mv Brewfile-bak Brewfile
 fi

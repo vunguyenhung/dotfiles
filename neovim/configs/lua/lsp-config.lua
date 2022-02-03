@@ -176,7 +176,8 @@ nvim_lsp.rust_analyzer.setup({
 -- npm install -g typescript \
 --   typescript-language-server \
 --   diagnostic-languageserver \
---   eslint_d eslint
+--   eslint_d eslint prettier \
+--   eslint-config-prettier eslint-plugin-prettier
 nvim_lsp.tsserver.setup {
     on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
