@@ -213,15 +213,14 @@ local linters = {
 }
 
 local formatters = {
-    prettier = {command = "prettier", args = {"--stdin-filepath", "%filepath"}},
-    prettierEslint = {command = "prettier-eslint", args = {"%filepath"}},
+    eslint = {command = "eslint_d", args = {"--fix-to-stdout", "--stdin", "--stdin-filename", "%filepath"}},
 }
 
 local formatFiletypes = {
-    javascript = "prettierEslint",
-    typescript = "prettierEslint",
-    javascriptreact = "prettier",
-    typescriptreact = "prettier",
+    javascript = "eslint",
+    typescript = "eslint",
+    javascriptreact = "eslint",
+    typescriptreact = "eslint",
 }
 
 nvim_lsp.diagnosticls.setup {
@@ -237,16 +236,47 @@ nvim_lsp.diagnosticls.setup {
 
 -- Enable json language server
 -- npm i -g vscode-langservers-extracted
--- nvim_lsp.jsonls.setup {}
+nvim_lsp.jsonls.setup {
+  on_attach = on_attach,
+  settings = {
+    json = {
+      schemas = {
+        {
+          fileMatch = { 'package.json' },
+          url = 'https://json.schemastore.org/package.json',
+        },
+        {
+          fileMatch = { 'tsconfig.json', 'tsconfig.*.json' },
+          url = 'http://json.schemastore.org/tsconfig',
+        },
+        {
+          fileMatch = { '.eslintrc.json', '.eslintrc' },
+          url = 'http://json.schemastore.org/eslintrc',
+        },
+        {
+          fileMatch = { '.prettierrc', '.prettierrc.json', 'prettier.config.json' },
+          url = 'http://json.schemastore.org/prettierrc',
+        },
+        {
+          fileMatch = { '.stylelintrc', '.stylelintrc.json', 'stylelint.config.json' },
+          url = 'http://json.schemastore.org/stylelintrc',
+        },
+      },
+    },
+  },
+}
 
 -- Enable yaml language server
 -- npm i -g yarn
 -- yarn global add yaml-language-server
-nvim_lsp.yamlls.setup{}
+nvim_lsp.yamlls.setup{
+  on_attach=on_attach
+}
 
 -- Enable css language server
 -- npm i -g vscode-langservers-extracted
 nvim_lsp.cssls.setup {
+  on_attach = on_attach,
   capabilities = capabilities,
 }
 

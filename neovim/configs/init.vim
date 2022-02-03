@@ -5,7 +5,6 @@ let mapleader = "\<Space>"
 call plug#begin('~/.local/share/nvim/plugged')
 
 " emmet
-" https://github.com/mattn/emmet-vim
 Plug 'mattn/emmet-vim'
 
 " Navigation
@@ -142,7 +141,8 @@ Plug 'https://github.com/pwntester/octo.nvim'
 call plug#end()
 
 " Theme
-source $VIMCONFIG_DIR/theme.vim
+source $VIMCONFIG_DIR/dracula.vim
+" source $VIMCONFIG_DIR/dracula.vim
 
 " Init in lua
 lua require("init")
