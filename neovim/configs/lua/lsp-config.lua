@@ -2,7 +2,7 @@
 local nvim_lsp = require'lspconfig'
 
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+ local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- Mappings.
@@ -52,9 +52,9 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
-  indent = {
-    enable = true
-  },
+  -- indent = {
+  --   enable = true
+  -- },
   incremental_selection = {
     enable = true,
     keymaps = {

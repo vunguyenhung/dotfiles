@@ -190,8 +190,6 @@ source $VIMCONFIG_DIR/vim-matchup.vim
 " tree-sitter settings
 source $VIMCONFIG_DIR/treesitter.vim
 
-" source $VIMCONFIG_DIR/colors.vim
-
 " Tab shortcuts
 nnoremap <C-t>n :tabnew %<CR>
 nnoremap <C-t>l :tabnext<CR>

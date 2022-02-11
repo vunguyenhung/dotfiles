@@ -15,6 +15,7 @@ command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 let g:fzf_commits_log_options = '--graph --color=always --decorate --all --reflog --format="%C(auto)%h%d %s | %C(auto)%C(bold)%cr"'
 
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+let $FZF_DEFAULT_OPTS = '--bind ctrl-s:select-all'
 
 " Search files
 nnoremap ` :Files<CR>
@@ -27,3 +28,14 @@ nnoremap <leader>`` :RG <C-r>"<CR>
 
 " Search commits
 nnoremap <leader>gc :Commits<CR>
+
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }

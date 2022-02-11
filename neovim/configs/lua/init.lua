@@ -57,7 +57,7 @@ require('gitsigns').setup{
 require'hop'.setup()
 
 -- focus
-require("focus").setup({signcolumn = false})
+require("focus").setup({signcolumn = false, treewidth = 50})
 
 -- Navigator
 require('Navigator').setup()
