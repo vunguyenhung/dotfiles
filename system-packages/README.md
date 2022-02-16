@@ -4,3 +4,5 @@
 ```bash
 bash ./install.sh
 ```
+
+## 2. Follows Brew cask application instructions when required

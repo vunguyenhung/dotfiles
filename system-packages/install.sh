@@ -9,3 +9,6 @@ cargo install cargo-edit
 
 # Node
 bash ./nodejs.sh
+
+# Karabiner
+cp -r ./karabiner ~/.config/karabiner
