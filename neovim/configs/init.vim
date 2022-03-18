@@ -100,7 +100,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
-Plug 'kosayoda/nvim-lightbulb'
 
 Plug 'hoob3rt/lualine.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -247,6 +246,10 @@ nnoremap  YY  "+yy
 " Paste from clipboard
 nnoremap P "+p
 vnoremap P "+p
+
+" Copy current path to clipboard
+:command! CopyPathToClipboard let @+ = expand('%:p')
+nnoremap <Leader>c :CopyPathToClipboard <CR>
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow

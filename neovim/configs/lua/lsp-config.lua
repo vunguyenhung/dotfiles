@@ -18,6 +18,7 @@ local on_attach = function(client, bufnr)
   vim.cmd('command! LspRename lua vim.lsp.buf.rename()')
   vim.cmd('command! LspCodeAction lua vim.lsp.buf.code_action()')
   vim.cmd('command! LspCodeActionTelescope lua require("telescope.builtin").lsp_code_actions()')
+  vim.cmd('command! LspReferencesTelescope lua require("telescope.builtin").lsp_references()')
   vim.cmd('command! LspReferences lua vim.lsp.buf.references()')
   vim.cmd('command! LspShowLineDiag lua vim.diagnostic.open_float()')
   vim.cmd('command! LspDiagPrev lua vim.diagnostic.goto_prev()')
@@ -32,7 +33,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'ff', ':w | :LspFormatting<CR>', opts)
   buf_set_keymap('n', '<space>r', ':LspRename<CR>', opts)
   buf_set_keymap('n', '<space>a', ':LspCodeActionTelescope<CR>', opts)
-  buf_set_keymap('n', 'gr', ':LspReferences<CR>', opts)
+  buf_set_keymap('n', 'gr', ':LspReferencesTelescope<CR>', opts)
   buf_set_keymap('n', '<space>e', ':LspShowLineDiag<CR>', opts)
   buf_set_keymap('n', '[g', ':LspDiagPrev<CR>', opts)
   buf_set_keymap('n', ']g', ':LspDiagNext<CR>', opts)
@@ -140,20 +141,28 @@ vim.diagnostic.config({
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'})
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = 'rounded'})
 
--- Show icon when code action available
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
-
+local telescope_actions = require("telescope.actions")
 require('telescope').setup{
   defaults = {
-    mappings = {}
+    mappings = {
+      i = {
+        ["<esc>"] = telescope_actions.close,
+        ["<C-x>"] = false,
+        ["<M-a>"] = telescope_actions.select_all,
+        ["<C-q>"] = telescope_actions.send_to_qflist + telescope_actions.open_qflist
+      },
+    },
   },
   pickers = {
     lsp_code_actions = {
       theme = "cursor",
+    },
+    lsp_references = {
+      theme = "ivy",
     }
   },
   extensions = {
-  }
+  },
 }
 
 require("trouble").setup{}
