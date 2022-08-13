@@ -2,11 +2,8 @@
 local nvim_lsp = require'lspconfig'
 
 local on_attach = function(client, bufnr)
- local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
   -- Mappings.
-  local opts = { noremap=true, silent=true }
+  local opts = { noremap=true, silent=true, buffer=bufnr }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   vim.cmd("command! LspDeclaration lua vim.lsp.buf.declaration()")
@@ -26,23 +23,23 @@ local on_attach = function(client, bufnr)
   vim.cmd('command! LspSetLocList lua vim.diagnostic.setloclist()')
   vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
 
-  buf_set_keymap('n', 'gd', ':LspDefinition<CR>', opts)
-  buf_set_keymap('n', 'K', ':LspHover<CR>', opts)
-  buf_set_keymap('n', 'I', ':LspSignatureHelp<CR>', opts)
-  buf_set_keymap('n', 'gi', ':LspImplementation<CR>', opts)
-  buf_set_keymap('n', 'ff', ':w | :LspFormatting<CR>', opts)
-  buf_set_keymap('n', '<space>r', ':LspRename<CR>', opts)
-  buf_set_keymap('n', '<space>a', ':LspCodeActionTelescope<CR>', opts)
-  buf_set_keymap('n', 'gr', ':LspReferencesTelescope<CR>', opts)
-  buf_set_keymap('n', '<space>e', ':LspShowLineDiag<CR>', opts)
-  buf_set_keymap('n', '[g', ':LspDiagPrev<CR>', opts)
-  buf_set_keymap('n', ']g', ':LspDiagNext<CR>', opts)
-  buf_set_keymap('n', '<space>q', ':TroubleToggle document_diagnostics<CR>', opts)
-  buf_set_keymap('n', '<space>Q', ':TroubleToggle workspace_diagnostics<CR>', opts)
-  buf_set_keymap('n', '<space>n', ':AerialToggle!<CR>', opts)
+  vim.keymap.set('n', 'gd', ':LspDefinition<CR>', opts)
+  vim.keymap.set('n', 'K', ':LspHover<CR>', opts)
+  vim.keymap.set('n', 'I', ':LspSignatureHelp<CR>', opts)
+  vim.keymap.set('n', 'gi', ':LspImplementation<CR>', opts)
+  vim.keymap.set('n', 'ff', ':w | :LspFormatting<CR>', opts)
+  vim.keymap.set('n', '<space>r', ':LspRename<CR>', opts)
+  vim.keymap.set('n', '<space>a', ':LspCodeActionTelescope<CR>', opts)
+  vim.keymap.set('n', 'gr', ':LspReferencesTelescope<CR>', opts)
+  vim.keymap.set('n', '<space>e', ':LspShowLineDiag<CR>', opts)
+  vim.keymap.set('n', '[g', ':LspDiagPrev<CR>', opts)
+  vim.keymap.set('n', ']g', ':LspDiagNext<CR>', opts)
+  vim.keymap.set('n', '<space>q', ':TroubleToggle document_diagnostics<CR>', opts)
+  vim.keymap.set('n', '<space>Q', ':TroubleToggle workspace_diagnostics<CR>', opts)
+  vim.keymap.set('n', '<space>n', ':AerialToggle!<CR>', opts)
 
   -- Add navigation
-  require("aerial").on_attach(client)
+  -- require("aerial").on_attach(client)
 end
 
 -- Syntax
@@ -166,11 +163,11 @@ require('telescope').setup{
 }
 
 require("trouble").setup{}
-require("todo-comments").setup{
-  keywords = {
-    DEBUG = { icon = " ", color = "warning" },
-  },
-}
+-- require("todo-comments").setup{
+--   keywords = {
+--     DEBUG = { icon = " ", color = "warning" },
+--   },
+-- }
 
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())

@@ -13,19 +13,19 @@ Plug 'https://github.com/numToStr/Navigator.nvim'
 Plug 'sunaku/tmux-navigate'
 
 " rust.vim: Rust support for vim
-Plug 'https://github.com/rust-lang/rust.vim'
+" Plug 'https://github.com/rust-lang/rust.vim'
 
 " vim-indent-object: defines a new text object representing lines of code at the same indent level
 Plug 'https://github.com/michaeljsmith/vim-indent-object'
 
 " vim-colorizer: color hex codes and color names
-Plug 'https://github.com/chrisbra/Colorizer'
+" Plug 'https://github.com/chrisbra/Colorizer'
 
 " auto-pairs - Insert or delete brackets, parens, quotes in pair
 Plug 'https://github.com/jiangmiao/auto-pairs'
 
 " Haskell support for vim
-Plug 'https://github.com/neovimhaskell/haskell-vim'
+" Plug 'https://github.com/neovimhaskell/haskell-vim'
 
 " hop.nvim - Easy navigation in VIM
 Plug 'phaazon/hop.nvim'
@@ -116,10 +116,10 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'folke/trouble.nvim'
 
 " highlight todo comments
-Plug 'folke/todo-comments.nvim'
+" Plug 'folke/todo-comments.nvim'
 
 " View and search LSP symbol
-Plug 'stevearc/aerial.nvim'
+" Plug 'stevearc/aerial.nvim'
 
 " show git diff in the gutter
 Plug 'lewis6991/gitsigns.nvim'
@@ -129,13 +129,13 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " vim-startify - start screen for vim
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 
 " Improved register
-Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+" Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
 
 " Github in neovim
-Plug 'https://github.com/pwntester/octo.nvim'
+" Plug 'https://github.com/pwntester/octo.nvim'
 
 call plug#end()
 
@@ -157,7 +157,7 @@ source $VIMCONFIG_DIR/focus.vim
 source $VIMCONFIG_DIR/vsnip.vim
 
 " vim-startify settings
-source $VIMCONFIG_DIR/vim_startify.vim
+" source $VIMCONFIG_DIR/vim_startify.vim
 
 " incsearch plugin settings
 source $VIMCONFIG_DIR/incsearch.vim
