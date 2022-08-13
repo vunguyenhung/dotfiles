@@ -11,4 +11,5 @@ cargo install cargo-edit
 bash ./nodejs.sh
 
 # Karabiner
+mkdir ~/.config/karabiner
 cp -r ./karabiner ~/.config/karabiner
