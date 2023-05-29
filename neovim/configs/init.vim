@@ -7,6 +7,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 " emmet
 Plug 'mattn/emmet-vim'
 
+Plug 'dstein64/vim-startuptime'
+
 " Navigation
 Plug 'beauwilliams/focus.nvim'
 Plug 'https://github.com/numToStr/Navigator.nvim'
@@ -107,6 +109,7 @@ Plug 'onsails/lspkind-nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
+Plug 'https://github.com/startup-nvim/startup.nvim'
 
 " theme
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -135,7 +138,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
 
 " Github in neovim
-" Plug 'https://github.com/pwntester/octo.nvim'
+Plug 'https://github.com/pwntester/octo.nvim'
 
 call plug#end()
 

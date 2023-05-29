@@ -21,7 +21,7 @@ local on_attach = function(client, bufnr)
   vim.cmd('command! LspDiagPrev lua vim.diagnostic.goto_prev()')
   vim.cmd('command! LspDiagNext lua vim.diagnostic.goto_next()')
   vim.cmd('command! LspSetLocList lua vim.diagnostic.setloclist()')
-  vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
+  vim.cmd("command! LspFormatting lua vim.lsp.buf.format()")
 
   vim.keymap.set('n', 'gd', ':LspDefinition<CR>', opts)
   vim.keymap.set('n', 'K', ':LspHover<CR>', opts)
@@ -36,7 +36,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', ']g', ':LspDiagNext<CR>', opts)
   vim.keymap.set('n', '<space>q', ':TroubleToggle document_diagnostics<CR>', opts)
   vim.keymap.set('n', '<space>Q', ':TroubleToggle workspace_diagnostics<CR>', opts)
-  vim.keymap.set('n', '<space>n', ':AerialToggle!<CR>', opts)
 
   -- Add navigation
   -- require("aerial").on_attach(client)
@@ -170,7 +169,7 @@ require("trouble").setup{}
 -- }
 
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Register Language Servers
 -- Enable rust_analyzer
 nvim_lsp.rust_analyzer.setup({
@@ -307,4 +306,10 @@ nvim_lsp.gopls.setup{
       staticcheck = true,
     },
   },
+}
+
+-- powershell_es
+-- Download from this page https://github.com/PowerShell/PowerShellEditorServices/releases
+require'lspconfig'.powershell_es.setup{
+  bundle_path = '~/PowerShellEditorServices',
 }

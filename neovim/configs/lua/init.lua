@@ -66,3 +66,11 @@ map('n', "<C-h>", "<CMD>lua require('Navigator').left()<CR>", opts)
 map('n', "<C-k>", "<CMD>lua require('Navigator').up()<CR>", opts)
 map('n', "<C-l>", "<CMD>lua require('Navigator').right()<CR>", opts)
 map('n', "<C-j>", "<CMD>lua require('Navigator').down()<CR>", opts)
+
+-- startup.vim
+require"startup".setup()
+
+
+-- octo
+require"octo".setup()
+
